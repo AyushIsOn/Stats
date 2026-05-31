@@ -11,13 +11,20 @@
         onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
 </head>
 <body>
+    <button id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
     <nav id="sidebar">
         <div class="sidebar-header">
             <h2>MAS2001</h2>
-            <p>Study Guide</p>
+            <p>Complete Study Guide</p>
+            <button id="theme-toggle" aria-label="Toggle dark mode">
+                <span class="theme-icon">&#9790;</span> <span class="theme-text">Dark Mode</span>
+            </button>
         </div>
         <ul class="nav-links">
             <li><a href="#overview" class="active">Overview & Exam Pattern</a></li>
+            <li><a href="#schedule" class="urgent-link">&#9200; Study Schedule (Jun 1-2)</a></li>
+            <li class="nav-section">Foundation</li>
+            <li><a href="#topic0">Basic Probability</a></li>
             <li class="nav-section">Priority 1 - CRITICAL (25%)</li>
             <li><a href="#topic5">Hypothesis Testing (t, F, Chi-sq, ANOVA)</a></li>
             <li class="nav-section">Priority 2 - CRITICAL (21.25%)</li>
@@ -94,6 +101,168 @@
         </section>
 
 
+        <!-- STUDY SCHEDULE SECTION -->
+        <section id="schedule" class="topic-section">
+            <h1>&#9200; Exam Crunch Study Schedule</h1>
+            <div class="alert-box">
+                <strong>Exam:</strong> 2nd June, 9:30 AM &nbsp;|&nbsp; <strong>Study starts:</strong> 1st June, 8:00 AM
+                <br>You have roughly <strong>~25 hours</strong> (with breaks &amp; sleep) to cover everything. This plan front-loads the highest-weightage, most-repeated topics so even if you run out of time, you'll have covered the maximum marks.
+            </div>
+
+            <h2>Strategy: Marks-per-Hour Priority</h2>
+            <p class="topic-description">Topics are ordered so that the <strong>25% + 21% + 21% = 67% of marks</strong> are secured first. Hypothesis Testing, Distributions, and Estimation alone make up two-thirds of the paper and have the most repeated questions.</p>
+
+            <h2>Day 1 — Monday, 1st June</h2>
+            <table class="schedule-table">
+                <tr><th>Time</th><th>Duration</th><th>Topic</th><th>Focus</th></tr>
+                <tr class="block-critical">
+                    <td>8:00 – 11:00 AM</td><td>3 hrs</td>
+                    <td><a href="#topic5">Hypothesis Testing (Priority 1, 25%)</a></td>
+                    <td>t-test (single, two-independent, paired), F-test. Solve Assignment 5 B1, B2, B3, C1, C2 + MTE-style problems. <strong>Most repeated.</strong></td>
+                </tr>
+                <tr><td>11:00 – 11:15 AM</td><td>Break</td><td>—</td><td>Rest your eyes, hydrate.</td></tr>
+                <tr class="block-critical">
+                    <td>11:15 AM – 1:15 PM</td><td>2 hrs</td>
+                    <td><a href="#topic5">Chi-Square & One-Way ANOVA</a></td>
+                    <td>Contingency tables (tea/school problems), ANOVA table construction (food/rats, blood pressure). Memorize the ANOVA table layout.</td>
+                </tr>
+                <tr><td>1:15 – 2:00 PM</td><td>Lunch</td><td>—</td><td>Proper break.</td></tr>
+                <tr class="block-critical">
+                    <td>2:00 – 5:00 PM</td><td>3 hrs</td>
+                    <td><a href="#topic2">Distributions + CLT (Priority 2, 21%)</a></td>
+                    <td>Binomial, Poisson, Normal (Z-table), Uniform, Exponential. Solve Assignment 2 Q2, Q4, Q5, Q8, Q10, Q17 + MTE B2, B4, C1.</td>
+                </tr>
+                <tr><td>5:00 – 5:30 PM</td><td>Break</td><td>—</td><td>Walk, snack.</td></tr>
+                <tr class="block-critical">
+                    <td>5:30 – 8:30 PM</td><td>3 hrs</td>
+                    <td><a href="#topic3">Estimation Theory (Priority 3, 21%)</a></td>
+                    <td>MLE (Normal, Exponential, Poisson), Method of Moments, Sufficient statistics, Exponential distribution. Practice deriving each MLE from scratch.</td>
+                </tr>
+                <tr><td>8:30 – 9:30 PM</td><td>Dinner</td><td>—</td><td>Relax.</td></tr>
+                <tr class="block-high">
+                    <td>9:30 – 11:00 PM</td><td>1.5 hrs</td>
+                    <td><a href="#topic1">Probability & Random Variables (Priority 4, 17.5%)</a></td>
+                    <td>PMF/PDF, CDF from PDF, Expectation, Variance, Chebyshev's inequality (bound vs actual). Assignment 1 Q3, Q6, Q11, Q13.</td>
+                </tr>
+                <tr><td>11:00 PM</td><td>Sleep</td><td>—</td><td><strong>Sleep by 11:30!</strong> A rested brain recalls formulas better than an all-nighter.</td></tr>
+            </table>
+
+            <h2>Day 2 — Tuesday, 2nd June (Exam Day)</h2>
+            <table class="schedule-table">
+                <tr><th>Time</th><th>Duration</th><th>Topic</th><th>Focus</th></tr>
+                <tr><td>6:30 – 7:00 AM</td><td>30 min</td><td>Wake + freshen up</td><td>Light breakfast.</td></tr>
+                <tr class="block-high">
+                    <td>7:00 – 8:00 AM</td><td>1 hr</td>
+                    <td><a href="#topic4">Bayesian + CI + Hypothesis Intro (Priority 5, 15%)</a></td>
+                    <td>Type I/II error problems (Assignment 4 Q13–16), confidence interval formulas, Bayesian posterior basics, parameter vs statistic, standard error definitions.</td>
+                </tr>
+                <tr class="block-review">
+                    <td>8:00 – 8:45 AM</td><td>45 min</td>
+                    <td><a href="#formulas">Formula Sheet + Definitions</a></td>
+                    <td>Rapid revision of ALL formulas. Skim Section A definitions (Type I/II, hypotheses, critical region). Review the <a href="#topic0">Basic Probability</a> rules.</td>
+                </tr>
+                <tr><td>8:45 – 9:15 AM</td><td>30 min</td><td>Travel to exam hall</td><td>Carry calculator, admit card. Stay calm.</td></tr>
+                <tr class="block-critical"><td>9:30 AM</td><td>—</td><td>EXAM</td><td>Attempt Section A (definitions) first for quick marks, then B, C, D. Show all steps in tests of hypothesis.</td></tr>
+            </table>
+
+            <div class="concept-box">
+                <h3>&#127919; If You're Short on Time (Triage Plan)</h3>
+                <ol>
+                    <li><strong>Never skip:</strong> Hypothesis Testing (t/F/Chi-sq/ANOVA) — 25% and most repeated.</li>
+                    <li><strong>Next:</strong> Distributions (Normal, Poisson, Binomial) — guaranteed Section B/C questions.</li>
+                    <li><strong>Then:</strong> MLE & Method of Moments — derivations repeat with small changes.</li>
+                    <li><strong>Quick wins:</strong> Memorize all Section A definitions &amp; the formula sheet — that's 10 easy marks.</li>
+                    <li><strong>Chebyshev + Type I/II errors:</strong> small effort, frequently asked.</li>
+                </ol>
+            </div>
+
+            <div class="alert-box tip">
+                <strong>Exam-hall tips:</strong> Calculator is allowed. For every hypothesis test write: (1) H&#8320; &amp; H&#8321;, (2) test statistic formula, (3) calculated value, (4) tabulated/critical value, (5) decision, (6) conclusion in words. This step-wise format earns full marks even if arithmetic slips.
+            </div>
+        </section>
+
+        <!-- TOPIC 0: BASIC PROBABILITY (FOUNDATION) -->
+        <section id="topic0" class="topic-section">
+            <div class="priority-badge foundation">FOUNDATION - Build Before Everything Else</div>
+            <h1>Basic Probability</h1>
+            <p class="topic-description">The syllabus lists "Probability (Only One Lecture)" as the starting point. These rules underpin every other topic — random variables, distributions, estimation, and Bayesian methods. Master these first.</p>
+
+            <div class="material-ref">
+                <h3>Material References</h3>
+                <ul>
+                    <li>probability_&_random_variable 2024.pdf — Axioms, conditional probability, independence, Bayes (pages 1-15)</li>
+                    <li>PPTs(L1-L8)_Basic Probability, RV, CI.pdf — Lecture 1 introduction</li>
+                    <li>Statistics and Probability Notes.pdf — Worked probability examples</li>
+                </ul>
+            </div>
+
+            <h2>Key Concepts & Theory</h2>
+
+            <div class="concept-box">
+                <h3>Basic Definitions</h3>
+                <dl>
+                    <dt>Random Experiment</dt>
+                    <dd>An experiment whose outcome cannot be predicted with certainty (e.g., tossing a coin, rolling a die).</dd>
+                    <dt>Sample Space (S)</dt>
+                    <dd>The set of all possible outcomes. E.g., rolling a die: S = {1, 2, 3, 4, 5, 6}.</dd>
+                    <dt>Event</dt>
+                    <dd>A subset of the sample space. E.g., getting an even number A = {2, 4, 6}.</dd>
+                    <dt>Classical Probability</dt>
+                    <dd>$P(E) = \dfrac{\text{No. of favourable outcomes}}{\text{Total no. of outcomes}} = \dfrac{n(E)}{n(S)}$</dd>
+                </dl>
+            </div>
+
+            <div class="concept-box">
+                <h3>Axioms of Probability (Kolmogorov)</h3>
+                <ul>
+                    <li>$0 \leq P(A) \leq 1$ for any event A</li>
+                    <li>$P(S) = 1$ (certainty), $P(\phi) = 0$ (impossible)</li>
+                    <li>For mutually exclusive events: $P(A_1 \cup A_2 \cup \dots) = P(A_1) + P(A_2) + \dots$</li>
+                    <li>Complement: $P(A) + P(A^c) = 1$</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Addition Rule</h3>
+                <div class="formula">$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$</div>
+                <p>If A and B are <strong>mutually exclusive</strong> ($A \cap B = \phi$): $P(A \cup B) = P(A) + P(B)$</p>
+                <p>For three events:</p>
+                <div class="formula">$$P(A \cup B \cup C) = P(A)+P(B)+P(C) - P(A\cap B) - P(B\cap C) - P(A\cap C) + P(A\cap B\cap C)$$</div>
+                <p><strong>Example:</strong> A card is drawn from a deck. P(spade or ace) = $\frac{13}{52} + \frac{4}{52} - \frac{1}{52} = \frac{16}{52} = \frac{4}{13}$.</p>
+            </div>
+
+            <div class="concept-box">
+                <h3>Conditional Probability & Multiplication Theorem</h3>
+                <div class="formula">$$P(B|A) = \frac{P(A \cap B)}{P(A)}, \quad P(A) > 0$$</div>
+                <p>Rearranging gives the <strong>multiplication theorem</strong>:</p>
+                <div class="formula">$$P(A \cap B) = P(A) \cdot P(B|A) = P(B) \cdot P(A|B)$$</div>
+                <p><strong>Worked example (from material):</strong> A flight departs on time P(D)=0.83, arrives on time P(A)=0.82, both P(D&cap;A)=0.78.</p>
+                <ul>
+                    <li>P(arrives | departed) = $\frac{0.78}{0.83} = 0.94$</li>
+                    <li>P(departed | arrived) = $\frac{0.78}{0.82} = 0.95$</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Independent Events</h3>
+                <p>Events A and B are independent if the occurrence of one does not affect the other:</p>
+                <div class="formula">$$P(A \cap B) = P(A) \cdot P(B) \quad\Leftrightarrow\quad P(B|A) = P(B)$$</div>
+                <p><strong>Example:</strong> Fire engine available P(A)=0.98, ambulance available P(B)=0.92, operating independently. P(both available) = $0.98 \times 0.92 = 0.9016$.</p>
+            </div>
+
+            <div class="concept-box">
+                <h3>Bayes' Theorem</h3>
+                <p>Used to "reverse" conditional probabilities — find P(cause | effect) from P(effect | cause). This is the foundation of Bayesian estimation.</p>
+                <div class="formula">$$P(A_i | B) = \frac{P(A_i) \cdot P(B|A_i)}{\sum_j P(A_j) \cdot P(B|A_j)}$$</div>
+                <p>Where $A_1, A_2, \dots$ form a partition of the sample space (mutually exclusive &amp; exhaustive). The denominator is the <strong>total probability</strong> $P(B)$.</p>
+                <p><strong>Total Probability Theorem:</strong> $P(B) = \sum_j P(A_j) P(B|A_j)$</p>
+            </div>
+
+            <div class="exam-tip">
+                <strong>Why this matters for the exam:</strong> Basic probability rarely appears as a standalone question in the ETE (it's "only one lecture"), but it is <em>embedded</em> in nearly every distribution and estimation problem. Conditional probability + independence is essential for the exponential distribution's memoryless property and for joint/independent random variables.
+            </div>
+        </section>
+
         <!-- TOPIC 5: HYPOTHESIS TESTING - HIGHEST PRIORITY (25%) -->
         <section id="topic5" class="topic-section">
             <div class="priority-badge critical">PRIORITY 1 - 20 Marks (25%)</div>
@@ -116,6 +285,20 @@
             <h2>Key Concepts & Theory</h2>
             
             <div class="concept-box">
+                <h3>Foundational Terms (Often asked in Section A)</h3>
+                <dl>
+                    <dt>Population & Parameter</dt>
+                    <dd>The <strong>population</strong> is the entire group under study. A <strong>parameter</strong> is a numerical characteristic of the population (e.g., population mean $\mu$, variance $\sigma^2$). Parameters are usually unknown and fixed.</dd>
+                    <dt>Sample & Statistic</dt>
+                    <dd>A <strong>sample</strong> is a subset of the population. A <strong>statistic</strong> is a numerical characteristic computed from the sample (e.g., sample mean $\bar{x}$, sample variance $s^2$). A statistic is used to <em>estimate</em> a parameter and varies from sample to sample.</dd>
+                    <dt>Standard Error (SE)</dt>
+                    <dd>The standard deviation of the sampling distribution of a statistic. It measures how precisely a statistic estimates the parameter. For the sample mean: $SE(\bar{x}) = \dfrac{\sigma}{\sqrt{n}}$ (or $\dfrac{s}{\sqrt{n}}$ when $\sigma$ is unknown). Smaller SE = more reliable estimate. <em>Content rephrased from referenced sources for compliance.</em></dd>
+                    <dt>Sampling Distribution</dt>
+                    <dd>The probability distribution of a statistic obtained from all possible samples of a given size. The test statistics (t, F, $\chi^2$) follow known sampling distributions.</dd>
+                </dl>
+            </div>
+
+            <div class="concept-box">
                 <h3>Definitions (Section A - Memorize)</h3>
                 <dl>
                     <dt>Statistical Hypothesis</dt>
@@ -127,14 +310,32 @@
                     <dt>Type I Error ($\alpha$)</dt>
                     <dd>Rejecting $H_0$ when it is actually TRUE. Probability = level of significance.</dd>
                     <dt>Type II Error ($\beta$)</dt>
-                    <dd>Accepting (failing to reject) $H_0$ when it is actually FALSE.</dd>
-                    <dt>Critical Region</dt>
-                    <dd>The set of values of the test statistic that leads to rejection of $H_0$.</dd>
-                    <dt>Level of Significance</dt>
+                    <dd>Accepting (failing to reject) $H_0$ when it is actually FALSE. The <strong>power</strong> of a test = $1 - \beta$.</dd>
+                    <dt>Critical Region (Rejection Region)</dt>
+                    <dd>The set of values of the test statistic that leads to rejection of $H_0$. Its boundary is the critical value.</dd>
+                    <dt>Level of Significance ($\alpha$)</dt>
                     <dd>The maximum probability of Type I error we are willing to tolerate (usually 0.05 or 0.01).</dd>
                     <dt>Confidence Interval & Limits</dt>
                     <dd>A range of values within which the true parameter is likely to lie. Limits are the endpoints of this interval.</dd>
                 </dl>
+            </div>
+
+            <div class="concept-box decision-table">
+                <h3>The 6-Step Testing Procedure (use for EVERY test)</h3>
+                <ol>
+                    <li><strong>State hypotheses:</strong> $H_0$ and $H_1$ (decide one- or two-tailed).</li>
+                    <li><strong>Set level of significance</strong> $\alpha$ (given, usually 0.05 or 0.01).</li>
+                    <li><strong>Compute the test statistic</strong> (t, F, or $\chi^2$) using the right formula.</li>
+                    <li><strong>Find the critical/tabulated value</strong> from tables using $\alpha$ and degrees of freedom.</li>
+                    <li><strong>Decision rule:</strong> Reject $H_0$ if |calculated| &gt; tabulated (else do not reject).</li>
+                    <li><strong>Conclusion</strong> stated in the context of the problem.</li>
+                </ol>
+                <p><strong>Decision summary:</strong></p>
+                <table>
+                    <tr><th></th><th>$H_0$ True</th><th>$H_0$ False</th></tr>
+                    <tr><td>Reject $H_0$</td><td>Type I error ($\alpha$)</td><td>Correct (Power = 1-$\beta$)</td></tr>
+                    <tr><td>Accept $H_0$</td><td>Correct (1-$\alpha$)</td><td>Type II error ($\beta$)</td></tr>
+                </table>
             </div>
 
 
@@ -201,6 +402,21 @@
                     <tr><td>Within</td><td>$SSW = \sum\sum(x_{ij} - \bar{x}_i)^2$</td><td>N-k</td><td>SSW/(N-k)</td></tr>
                     <tr><td>Total</td><td>$SST = \sum\sum(x_{ij} - \bar{\bar{x}})^2$</td><td>N-1</td><td>-</td><td>-</td></tr>
                 </table>
+                <p><strong>Shortcut:</strong> $SST = SSB + SSW$, so compute any two and subtract. Reject $H_0$ if $F_{calc} > F_{\alpha, k-1, N-k}$ (ANOVA is always right-tailed).</p>
+            </div>
+
+            <div class="concept-box decision-table">
+                <h3>&#129518; Which Test Should I Use? (Decision Guide)</h3>
+                <table>
+                    <tr><th>Situation</th><th>Test</th><th>Statistic</th></tr>
+                    <tr><td>Compare 1 sample mean to a claimed value (small n, &sigma; unknown)</td><td>One-sample t-test</td><td>$t = \frac{\bar{x}-\mu_0}{s/\sqrt{n}}$</td></tr>
+                    <tr><td>Compare means of 2 independent groups</td><td>Two-sample (independent) t-test</td><td>$t = \frac{\bar{x}_1-\bar{x}_2}{s_p\sqrt{1/n_1+1/n_2}}$</td></tr>
+                    <tr><td>Compare 2 related/matched measurements (before-after)</td><td>Paired t-test</td><td>$t = \frac{\bar{d}}{s_d/\sqrt{n}}$</td></tr>
+                    <tr><td>Compare variances / SDs of 2 populations</td><td>F-test</td><td>$F = s_1^2/s_2^2$</td></tr>
+                    <tr><td>Check association between 2 categorical attributes</td><td>Chi-square test</td><td>$\chi^2 = \sum\frac{(O-E)^2}{E}$</td></tr>
+                    <tr><td>Compare means of 3 or more groups</td><td>One-way ANOVA</td><td>$F = MSB/MSW$</td></tr>
+                </table>
+                <p><strong>Quick cues from the question wording:</strong> "two cities/batteries/mines variance same?" &rarr; F-test. "independent of attribute / contingency table" &rarr; Chi-square. "three or more groups/treatments" &rarr; ANOVA. "before and after on same subjects" &rarr; paired t-test.</p>
             </div>
 
 
@@ -473,6 +689,20 @@
                 <p><strong>Application:</strong> Used to find probability that sample mean lies in a given range.</p>
             </div>
 
+            <div class="concept-box decision-table">
+                <h3>&#129518; Which Distribution to Use? (Recognition Guide)</h3>
+                <table>
+                    <tr><th>Clue in the problem</th><th>Distribution</th></tr>
+                    <tr><td>Fixed n trials, "success/failure", probability p (e.g. defective screws, boys/girls)</td><td>Binomial</td></tr>
+                    <tr><td>Rare events / counts per interval; "average number of...", errors per page, calls per hour</td><td>Poisson</td></tr>
+                    <tr><td>"Equally likely" over an interval; waiting time within fixed period; random point in [a,b]</td><td>Uniform</td></tr>
+                    <tr><td>Bell-shaped, "mean and SD given", heights/marks/rainfall, large-sample approximations</td><td>Normal</td></tr>
+                    <tr><td>Time until an event, lifetime, time between arrivals; "memoryless"</td><td>Exponential</td></tr>
+                    <tr><td>Probability about a <em>sample mean</em> from large n</td><td>Normal via CLT</td></tr>
+                </table>
+                <p><strong>Handy links:</strong> Poisson approximates Binomial when n large, p small ($\lambda = np$). Normal approximates Binomial when n large ($\mu = np$, $\sigma^2 = npq$).</p>
+            </div>
+
 
             <h2>Questions from Assignments & PYQs</h2>
 
@@ -699,14 +929,15 @@
                 <h3>Properties of a Good Estimator</h3>
                 <dl>
                     <dt>Unbiasedness</dt>
-                    <dd>$E(\hat{\theta}) = \theta$. The expected value of the estimator equals the true parameter.</dd>
+                    <dd>$E(\hat{\theta}) = \theta$. The expected value of the estimator equals the true parameter. E.g., sample mean $\bar{x}$ is unbiased for $\mu$; sample variance $s^2$ (with $n-1$ divisor) is unbiased for $\sigma^2$.</dd>
                     <dt>Consistency</dt>
-                    <dd>$\hat{\theta}_n \xrightarrow{P} \theta$ as $n \to \infty$. Estimator converges to true value as sample size increases.</dd>
+                    <dd>$\hat{\theta}_n \xrightarrow{P} \theta$ as $n \to \infty$. As sample size grows, the estimator converges to the true value (bias and variance both shrink to 0).</dd>
                     <dt>Efficiency</dt>
-                    <dd>Among all unbiased estimators, the one with minimum variance is most efficient.</dd>
+                    <dd>Among all unbiased estimators, the one with the <strong>minimum variance</strong> is most efficient (MVUE = Minimum Variance Unbiased Estimator). Efficiency = ratio of minimum possible variance (Cramer-Rao bound) to the estimator's variance.</dd>
                     <dt>Sufficiency</dt>
-                    <dd>A statistic $T(X)$ is sufficient for $\theta$ if it captures all information about $\theta$ in the data.</dd>
+                    <dd>A statistic $T(X)$ is sufficient for $\theta$ if it captures ALL information about $\theta$ contained in the sample — no other statistic can add information about $\theta$.</dd>
                 </dl>
+                <p class="note-inline">Memory aid: <strong>U-C-E-S</strong> (Unbiased, Consistent, Efficient, Sufficient). An ideal estimator has all four.</p>
             </div>
 
             <div class="concept-box">
@@ -743,6 +974,27 @@
                     <li>Bernoulli(p): $\hat{p} = \bar{x}$</li>
                     <li>Uniform(0, $\theta$): $\hat{\theta} = \max(x_1, ..., x_n)$</li>
                 </ul>
+            </div>
+
+            <div class="worked-example">
+                <h4>Worked Example: MLE for Exponential Distribution</h4>
+                <p>Given a random sample $x_1, \dots, x_n$ from $f(x;\lambda) = \lambda e^{-\lambda x}$, find $\hat{\lambda}_{MLE}$.</p>
+                <p><strong>Step 1 — Likelihood:</strong> $L(\lambda) = \prod_{i=1}^n \lambda e^{-\lambda x_i} = \lambda^n e^{-\lambda \sum x_i}$</p>
+                <p><strong>Step 2 — Log-likelihood:</strong> $\ln L = n\ln\lambda - \lambda\sum x_i$</p>
+                <p><strong>Step 3 — Differentiate &amp; set to 0:</strong> $\dfrac{d\ln L}{d\lambda} = \dfrac{n}{\lambda} - \sum x_i = 0$</p>
+                <p><strong>Step 4 — Solve:</strong> $\hat{\lambda} = \dfrac{n}{\sum x_i} = \dfrac{1}{\bar{x}}$</p>
+                <p><strong>Step 5 — Verify max:</strong> $\dfrac{d^2\ln L}{d\lambda^2} = -\dfrac{n}{\lambda^2} < 0$ &#10003; (it is a maximum).</p>
+            </div>
+
+            <div class="worked-example">
+                <h4>Worked Example: Method of Moments for Uniform(0, &theta;)</h4>
+                <p>For $U(0,\theta)$, the population mean is $E(X) = \theta/2$.</p>
+                <p>Equate to sample mean: $\dfrac{\theta}{2} = \bar{x} \;\Rightarrow\; \hat{\theta}_{MoM} = 2\bar{x}$.</p>
+                <p><em>Note:</em> Compare with MLE $\hat{\theta} = \max(x_i)$ — different methods can give different estimators for the same parameter!</p>
+            </div>
+
+            <div class="exam-tip">
+                <strong>MLE vs MoM — which is "better"?</strong> MLE is generally more efficient (smaller variance) and is consistent &amp; asymptotically normal, but can be harder to compute. MoM is simpler (just equate moments) but can be less efficient. Both are <em>consistent</em>. Questions often ask you to derive BOTH for the same distribution and compare.
             </div>
 
             <div class="concept-box">
@@ -881,6 +1133,19 @@
                     <li>If X, Y independent: $E(XY) = E(X) \cdot E(Y)$</li>
                     <li>$Var(X \pm Y) = Var(X) + Var(Y)$ (if independent)</li>
                 </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Independent Random Variables</h3>
+                <p>Two random variables X and Y are independent if their joint distribution factorizes:</p>
+                <div class="formula">$$f(x,y) = f_X(x) \cdot f_Y(y) \quad\text{(continuous)}, \qquad P(X=x, Y=y) = P(X=x)P(Y=y)\ \text{(discrete)}$$</div>
+                <p><strong>Consequences for independent X, Y:</strong></p>
+                <ul>
+                    <li>$E(XY) = E(X)E(Y)$</li>
+                    <li>$Var(aX \pm bY) = a^2 Var(X) + b^2 Var(Y)$ &nbsp;(note: it's always <strong>+</strong> on the right)</li>
+                    <li>$Cov(X,Y) = 0$ (independence implies zero covariance; converse not always true)</li>
+                </ul>
+                <p class="note-inline">This is why, in the MTE Poisson problem, $Var(X-2Y) = Var(X) + 4Var(Y)$ — the minus sign becomes plus and the constant gets squared.</p>
             </div>
 
             <div class="concept-box">
@@ -1074,6 +1339,21 @@
                     <li>Compute posterior $f(\theta|x) \propto f(x|\theta) \cdot \pi(\theta)$</li>
                     <li>Find the Bayes estimate = $E(\theta|x)$ = mean of posterior</li>
                 </ol>
+            </div>
+
+            <div class="worked-example">
+                <h4>Intuition: The 3-Coins Example (from material PDF)</h4>
+                <p>Suppose someone carries 3 coins: one 2-headed (p=1), one 2-tailed (p=0), one fair (p=0.5). They pick one at random (prior = 1/3 each), flip 3 times, and get 2 heads (n=3, x=2).</p>
+                <ul>
+                    <li><strong>MLE/MoM</strong> would ignore the prior and estimate $\hat{p} = 2/3$ — but that's impossible since only p = 0, 0.5, 1 exist!</li>
+                    <li><strong>Bayesian</strong> uses priors. Likelihood $P(X{=}2|p) = \binom{3}{2}p^2(1-p)$: for p=1 &rarr; 0, p=0 &rarr; 0, p=0.5 &rarr; 0.375.</li>
+                    <li>Posterior $\propto$ prior &times; likelihood. Only the fair coin gives non-zero posterior &rarr; conclude it's the <strong>fair coin (p = 0.5)</strong>.</li>
+                </ul>
+                <p><strong>Key takeaway:</strong> Bayesian estimation incorporates <em>prior knowledge</em>, while MLE and MoM rely only on the observed sample. <em>Content rephrased from material for compliance.</em></p>
+            </div>
+
+            <div class="exam-tip">
+                <strong>Prior &rarr; Posterior:</strong> The posterior probability is proportional to (prior &times; likelihood). The parameter value with the highest posterior is the best Bayesian estimate. For continuous parameters, the Bayes estimate (under squared-error loss) is the <em>mean of the posterior distribution</em>.
             </div>
 
             <h3>Bayesian Estimation Reference Material</h3>
@@ -1439,6 +1719,46 @@
     </main>
 
     <script>
+        // ===== Dark Mode Toggle =====
+        (function () {
+            const root = document.documentElement;
+            const saved = localStorage.getItem('mas2001-theme');
+            // Default to dark mode for comfortable late-night studying
+            const theme = saved || 'dark';
+            root.setAttribute('data-theme', theme);
+
+            function updateToggleLabel(t) {
+                const icon = document.querySelector('.theme-icon');
+                const text = document.querySelector('.theme-text');
+                if (!icon || !text) return;
+                if (t === 'dark') { icon.innerHTML = '&#9728;'; text.textContent = 'Light Mode'; }
+                else { icon.innerHTML = '&#9790;'; text.textContent = 'Dark Mode'; }
+            }
+            document.addEventListener('DOMContentLoaded', () => updateToggleLabel(theme));
+
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('#theme-toggle');
+                if (!btn) return;
+                const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', current);
+                localStorage.setItem('mas2001-theme', current);
+                updateToggleLabel(current);
+            });
+        })();
+
+        // ===== Mobile Menu Toggle =====
+        document.addEventListener('click', function (e) {
+            const sidebar = document.getElementById('sidebar');
+            if (e.target.closest('#menu-toggle')) {
+                sidebar.classList.toggle('open');
+                return;
+            }
+            // Close sidebar when a nav link is tapped on mobile
+            if (e.target.closest('.nav-links a') && window.innerWidth <= 768) {
+                sidebar.classList.remove('open');
+            }
+        });
+
         // Smooth scrolling for navigation
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function(e) {

@@ -547,3 +547,204 @@ details > :not(summary) {
     .solution-images img { max-width: 80%; }
     .question-box { break-inside: avoid; }
 }
+
+
+/* ============================================================
+   THEME TOGGLE & MENU BUTTONS
+   ============================================================ */
+#theme-toggle {
+    margin-top: 0.85rem;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255,255,255,0.08);
+    color: #e2e8f0;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+#theme-toggle:hover { background: rgba(255,255,255,0.16); }
+#theme-toggle:active { transform: scale(0.97); }
+.theme-icon { font-size: 1rem; line-height: 1; }
+
+#menu-toggle {
+    display: none;
+    position: fixed;
+    top: 0.8rem;
+    left: 0.8rem;
+    z-index: 200;
+    width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* Urgent nav link (study schedule) */
+.nav-links li a.urgent-link {
+    color: #fca5a5;
+    font-weight: 700;
+}
+.nav-links li a.urgent-link:hover { color: #fecaca; }
+
+/* ============================================================
+   NEW CONTENT COMPONENTS (theme-aware via variables)
+   ============================================================ */
+.priority-badge.foundation {
+    background: #ecfeff;
+    color: #0e7490;
+    border: 2px solid #06b6d4;
+}
+
+.alert-box {
+    background: #fffbeb;
+    border: 1px solid var(--high);
+    border-left: 5px solid var(--high);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    margin: 1rem 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+}
+.alert-box.tip {
+    background: #eff6ff;
+    border-color: var(--primary);
+    border-left-color: var(--primary);
+}
+
+/* Schedule table */
+.schedule-table { font-size: 0.88rem; }
+.schedule-table th { background: var(--primary); color: #fff; }
+.schedule-table td:first-child { white-space: nowrap; font-weight: 600; }
+.schedule-table tr.block-critical td { background: #fef2f2; }
+.schedule-table tr.block-high td { background: #fffbeb; }
+.schedule-table tr.block-review td { background: #eff6ff; }
+.schedule-table a { color: var(--primary-dark); font-weight: 600; text-decoration: none; }
+.schedule-table a:hover { text-decoration: underline; }
+
+/* Worked example box */
+.worked-example {
+    background: #f5f3ff;
+    border: 1px solid #c4b5fd;
+    border-left: 5px solid #8b5cf6;
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    margin: 1rem 0;
+}
+.worked-example h4 {
+    margin: 0 0 0.6rem;
+    color: #6d28d9;
+}
+.worked-example p { margin: 0.35rem 0; }
+
+/* Exam tip box */
+.exam-tip {
+    background: #ecfdf5;
+    border: 1px solid #6ee7b7;
+    border-left: 5px solid var(--medium);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+}
+
+.note-inline {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+[data-theme="dark"] {
+    --primary: #60a5fa;
+    --primary-dark: #93c5fd;
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --text: #e2e8f0;
+    --text-light: #94a3b8;
+    --border: #334155;
+}
+
+[data-theme="dark"] body { background: var(--bg); }
+
+/* Sidebar already dark; refine border in dark mode */
+[data-theme="dark"] #sidebar { background: #0b1120; border-right: 1px solid #1e293b; }
+
+/* Override hardcoded light backgrounds */
+[data-theme="dark"] .topic-description { background: #1e293b; }
+[data-theme="dark"] .formula { background: #15243f; border-color: #2c4a6e; }
+[data-theme="dark"] th { background: #243049; color: var(--text); }
+[data-theme="dark"] .total-row td { background: #1e3a5f; }
+[data-theme="dark"] .weight-bar {
+    background: linear-gradient(90deg, #1e3a5f calc(var(--weight) * 4), #1a2436 calc(var(--weight) * 4));
+}
+
+[data-theme="dark"] .material-ref { background: #102219; border-color: #1f5135; }
+[data-theme="dark"] .material-ref h3,
+[data-theme="dark"] .material-ref li { color: #86efac; }
+
+[data-theme="dark"] .concept-box .formula,
+[data-theme="dark"] details summary { background: #15243f; }
+[data-theme="dark"] details summary { color: #93c5fd; }
+[data-theme="dark"] details summary:hover { background: #1e3a5f; }
+
+[data-theme="dark"] .gallery-section summary { background: #243049; }
+[data-theme="dark"] .q-source { background: #243049; color: var(--text-light); }
+
+[data-theme="dark"] .hot-badge,
+[data-theme="dark"] .repeat-note { background: #3a1620; color: #fca5a5; border-color: #7f1d1d; }
+
+[data-theme="dark"] .priority-badge.critical { background: #3a1620; }
+[data-theme="dark"] .priority-badge.high { background: #3a2e12; }
+[data-theme="dark"] .priority-badge.foundation { background: #0c2c33; color: #67e8f9; }
+
+[data-theme="dark"] .alert-box { background: #2a2410; }
+[data-theme="dark"] .alert-box.tip { background: #122036; }
+[data-theme="dark"] .worked-example { background: #1d172e; border-color: #5b3fa0; }
+[data-theme="dark"] .worked-example h4 { color: #c4b5fd; }
+[data-theme="dark"] .exam-tip { background: #102a20; border-color: #1f6b47; }
+
+[data-theme="dark"] .schedule-table tr.block-critical td { background: #2a1419; }
+[data-theme="dark"] .schedule-table tr.block-high td { background: #2a2410; }
+[data-theme="dark"] .schedule-table tr.block-review td { background: #122036; }
+
+[data-theme="dark"] .exam-card,
+[data-theme="dark"] .question-box,
+[data-theme="dark"] .concept-box,
+[data-theme="dark"] .formula-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .img-modal { background: rgba(0,0,0,0.95); }
+
+/* Smooth theme transition */
+body, .exam-card, .question-box, .concept-box, .formula-card,
+.alert-box, .worked-example, .exam-tip, .material-ref, .topic-description {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+    #menu-toggle { display: block; }
+    #sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    #sidebar.open { transform: translateX(0); }
+    #content { padding-top: 4rem; }
+}
