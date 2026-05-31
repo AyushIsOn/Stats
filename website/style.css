@@ -882,3 +882,72 @@ body, .exam-card, .question-box, .concept-box, .formula-card,
     cursor: pointer; font-size: 0.82rem;
 }
 .reset-btn:hover { color: var(--critical); border-color: var(--critical); }
+
+
+/* ============================================================
+   TEST-STATISTIC CALCULATOR
+   ============================================================ */
+.calc-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+.calc-tab {
+    padding: 0.5rem 1rem; border: 1px solid var(--border); background: var(--card-bg);
+    color: var(--text-light); border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+}
+.calc-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.calc-panel { display: none; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+.calc-panel.active { display: block; }
+.calc-panel h3 { margin: 0 0 1rem; color: var(--primary-dark); }
+.calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.85rem; }
+.calc-grid-2x2 { grid-template-columns: repeat(2, minmax(150px, 1fr)); }
+.calc-grid label { display: flex; flex-direction: column; font-size: 0.82rem; font-weight: 600; color: var(--text-light); gap: 0.3rem; }
+.calc-grid input, .calc-grid select {
+    padding: 0.5rem; border: 1px solid var(--border); border-radius: 6px;
+    background: var(--bg); color: var(--text); font-size: 0.95rem;
+}
+.calc-grid input:focus, .calc-grid select:focus { outline: 2px solid var(--primary); border-color: var(--primary); }
+.calc-run {
+    margin-top: 1rem; padding: 0.6rem 1.5rem; background: var(--primary); color: #fff;
+    border: none; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 700;
+}
+.calc-run:hover { background: var(--primary-dark); }
+.calc-result {
+    margin-top: 1rem; padding: 0; max-height: 0; overflow: hidden;
+    border-radius: 8px; font-size: 0.95rem; line-height: 1.8;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.calc-result.show { padding: 1rem 1.25rem; max-height: 400px; background: var(--bg); border: 1px solid var(--border); }
+.v-reject { font-weight: 800; color: var(--critical); }
+.v-accept { font-weight: 800; color: var(--medium); }
+
+
+/* ============================================================
+   CHEAT SHEET
+   ============================================================ */
+.cheat-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.85rem; margin-top: 1rem;
+}
+.cheat-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 0.9rem 1.1rem;
+}
+.cheat-card h4 { margin: 0 0 0.5rem; color: var(--primary-dark); font-size: 0.95rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+.cheat-card h4:not(:first-child) { margin-top: 0.8rem; }
+.cheat-card ul, .cheat-card ol { margin: 0; padding-left: 1.1rem; }
+.cheat-card li { margin: 0.25rem 0; font-size: 0.82rem; }
+
+/* ============================================================
+   PRINT: cheat sheet only
+   ============================================================ */
+@media print {
+    body.print-cheat-mode #sidebar,
+    body.print-cheat-mode #menu-toggle,
+    body.print-cheat-mode #back-to-top,
+    body.print-cheat-mode .no-print { display: none !important; }
+    body.print-cheat-mode #content { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+    body.print-cheat-mode #content > section:not(#cheatsheet) { display: none !important; }
+    body.print-cheat-mode #cheatsheet { border: none; margin: 0; }
+    body.print-cheat-mode .cheat-grid { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
+    body.print-cheat-mode .cheat-card { break-inside: avoid; border: 1px solid #999; }
+    body.print-cheat-mode, body.print-cheat-mode #cheatsheet { background: #fff !important; color: #000 !important; }
+    body.print-cheat-mode .cheat-card, body.print-cheat-mode .cheat-card h4 { background: #fff !important; color: #000 !important; }
+}
