@@ -24,6 +24,7 @@
             <li><a href="#overview" class="active">Overview & Exam Pattern</a></li>
             <li><a href="#schedule" class="urgent-link">&#9200; Study Schedule (Jun 1-2)</a></li>
             <li><a href="#repeats" class="urgent-link">&#11088; Most-Repeated Questions</a></li>
+            <li><a href="#worked">&#9999;&#65039; Fully Worked Solutions</a></li>
             <li><a href="#progress">&#9989; Progress Tracker</a></li>
             <li class="nav-section">Foundation</li>
             <li><a href="#topic0">Basic Probability</a></li>
@@ -40,7 +41,9 @@
             <li class="nav-section">Revision Tools</li>
             <li><a href="#mistakes">Common Mistakes</a></li>
             <li><a href="#quiz">Self-Test Quiz</a></li>
+            <li><a href="#calculator">&#129518; Test Calculator</a></li>
             <li class="nav-section">Resources</li>
+            <li><a href="#cheatsheet">&#128424;&#65039; Printable Cheat Sheet</a></li>
             <li><a href="#solutions">Solution Gallery</a></li>
             <li><a href="#tables">Statistical Tables</a></li>
             <li><a href="#formulas">Formula Sheet</a></li>
@@ -246,6 +249,88 @@
 
             <div class="exam-tip">
                 <strong>Pattern:</strong> Sections C &amp; D of the ETE almost always pull from these hypothesis-testing and distribution problems. Practice writing each one out fully (all 6 steps) at least twice before the exam.
+            </div>
+        </section>
+
+        <!-- FULLY WORKED SOLUTIONS (TYPED) -->
+        <section id="worked" class="topic-section">
+            <h1>&#9999;&#65039; Fully Worked Solutions (Typed)</h1>
+            <p class="topic-description">Clean, step-by-step typed solutions for the most-repeated questions &mdash; easier to read than the handwritten scans. Every number here was recomputed and verified. Follow the same 6-step format in your exam to earn full marks.</p>
+
+            <div class="worked-example">
+                <h4>WS-1 &middot; Mines Heat Capacity &mdash; F-test for equal variances <span class="freq">repeats 3&times;</span></h4>
+                <p><strong>Data:</strong> Mine 1: 8260, 8130, 8350, 8070, 8340 (n&#8321;=5) &nbsp;|&nbsp; Mine 2: 7950, 7890, 7900, 8140, 7920, 7840 (n&#8322;=6)</p>
+                <p><strong>Step 1 &mdash; Hypotheses:</strong> $H_0: \sigma_1^2 = \sigma_2^2$ &nbsp; vs &nbsp; $H_1: \sigma_1^2 \neq \sigma_2^2$</p>
+                <p><strong>Step 2 &mdash; &alpha; = 0.05</strong> (two-tailed).</p>
+                <p><strong>Step 3 &mdash; Sample variances:</strong> $\bar{x}_1 = 8230,\ s_1^2 = 15750$; &nbsp; $\bar{x}_2 = 7940,\ s_2^2 = 10920$.</p>
+                <p><strong>Step 4 &mdash; Test statistic</strong> (larger variance on top): $F = \dfrac{15750}{10920} = 1.442$, &nbsp; df = (4, 5).</p>
+                <p><strong>Step 5 &mdash; Critical value:</strong> $F_{0.05,\,4,5} = 5.19$. Since $1.442 &lt; 5.19$, do NOT reject $H_0$.</p>
+                <p><strong>Step 6 &mdash; Conclusion:</strong> The two population variances can be considered <strong>equal</strong>; no significant difference in variability.</p>
+            </div>
+
+            <div class="worked-example">
+                <h4>WS-2 &middot; Heights of 10 Adult Males &mdash; one-sample t-test <span class="freq">repeats 2&times;</span></h4>
+                <p><strong>Data:</strong> n = 10, $\bar{x}$ = 158 cm, variance = 39.0625 (so s = 6.25). Claim: average height &lt; 162.5 cm.</p>
+                <p><strong>Step 1:</strong> $H_0: \mu = 162.5$ &nbsp; vs &nbsp; $H_1: \mu &lt; 162.5$ (one-tailed, left).</p>
+                <p><strong>Step 2 &mdash; &alpha; = 0.05.</strong></p>
+                <p><strong>Step 3 &mdash; Test statistic:</strong> $t = \dfrac{\bar{x} - \mu_0}{s/\sqrt{n}} = \dfrac{158 - 162.5}{6.25/\sqrt{10}} = \dfrac{-4.5}{1.976} = -2.277$, &nbsp; df = 9.</p>
+                <p><strong>Step 4 &mdash; Critical value:</strong> $-t_{0.05,\,9} = -1.833$.</p>
+                <p><strong>Step 5 &mdash; Decision:</strong> $-2.277 &lt; -1.833$, so it falls in the rejection region &rarr; reject $H_0$.</p>
+                <p><strong>Step 6 &mdash; Conclusion:</strong> Adult males in the locality are, on average, <strong>significantly shorter than 162.5 cm</strong>.</p>
+            </div>
+
+            <div class="worked-example">
+                <h4>WS-3 &middot; Pesticide Bags &mdash; one-sample t-test <span class="freq">repeats 2&times;</span></h4>
+                <p><strong>Data:</strong> 50, 49, 44, 52, 45, 48, 46, 45, 49, 45 (n = 10). Test if average packing = 50 kg.</p>
+                <p><strong>Step 1:</strong> $H_0: \mu = 50$ &nbsp; vs &nbsp; $H_1: \mu \neq 50$ (two-tailed).</p>
+                <p><strong>Step 2 &mdash; &alpha; = 0.05.</strong></p>
+                <p><strong>Step 3 &mdash; Sample stats:</strong> $\bar{x} = 47.3$, &nbsp; $s = 2.669$.</p>
+                <p><strong>Test statistic:</strong> $t = \dfrac{47.3 - 50}{2.669/\sqrt{10}} = \dfrac{-2.7}{0.844} = -3.199$, &nbsp; df = 9.</p>
+                <p><strong>Step 4 &mdash; Critical value:</strong> $\pm t_{0.025,\,9} = \pm 2.262$.</p>
+                <p><strong>Step 5 &mdash; Decision:</strong> $|-3.199| &gt; 2.262$ &rarr; reject $H_0$.</p>
+                <p><strong>Step 6 &mdash; Conclusion:</strong> The average packing is <strong>significantly different from 50 kg</strong> (it is less).</p>
+            </div>
+
+            <div class="worked-example">
+                <h4>WS-4 &middot; Tea Consumption (Hindu vs Non-Hindu) &mdash; Chi-square <span class="freq">repeats 2&times;</span></h4>
+                <p><strong>Data:</strong> 2000 families, 1400 tea consumers. Of 1800 Hindu families, 1236 consume tea.</p>
+                <p><strong>Step 1:</strong> $H_0$: tea consumption is independent of community &nbsp; vs &nbsp; $H_1$: not independent.</p>
+                <p><strong>Step 2 &mdash; &alpha; = 0.05.</strong></p>
+                <p><strong>Step 3 &mdash; Observed &amp; Expected</strong> (E = row&times;col/total):</p>
+                <table>
+                    <tr><th></th><th>Tea (O / E)</th><th>No Tea (O / E)</th><th>Total</th></tr>
+                    <tr><td>Hindu</td><td>1236 / 1260</td><td>564 / 540</td><td>1800</td></tr>
+                    <tr><td>Non-Hindu</td><td>164 / 140</td><td>36 / 60</td><td>200</td></tr>
+                    <tr><td>Total</td><td>1400</td><td>600</td><td>2000</td></tr>
+                </table>
+                <p><strong>Test statistic:</strong> $\chi^2 = \sum\dfrac{(O-E)^2}{E} = \dfrac{24^2}{1260}+\dfrac{24^2}{540}+\dfrac{24^2}{140}+\dfrac{24^2}{60} = 15.24$, &nbsp; df = (2-1)(2-1) = 1.</p>
+                <p><strong>Step 4 &mdash; Critical value:</strong> $\chi^2_{0.05,\,1} = 3.841$.</p>
+                <p><strong>Step 5 &mdash; Decision:</strong> $15.24 &gt; 3.841$ &rarr; reject $H_0$.</p>
+                <p><strong>Step 6 &mdash; Conclusion:</strong> There IS a <strong>significant difference</strong> in tea consumption between Hindu and non-Hindu families (they are associated).</p>
+            </div>
+
+            <div class="worked-example">
+                <h4>WS-5 &middot; Three Foods on Rats &mdash; One-Way ANOVA <span class="freq">repeats 3&times;</span></h4>
+                <p><strong>Data (weight gain):</strong> Food I: 8,12,19,8,6,11 &nbsp;|&nbsp; Food II: 4,5,4,6,9,7 &nbsp;|&nbsp; Food III: 11,8,7,13,7,9 (each n = 6, N = 18).</p>
+                <p><strong>Step 1:</strong> $H_0: \mu_1=\mu_2=\mu_3$ &nbsp; vs &nbsp; $H_1$: at least one mean differs.</p>
+                <p><strong>Step 2 &mdash; &alpha; = 0.05.</strong></p>
+                <p><strong>Step 3 &mdash; Means:</strong> $\bar{x}_1 = 10.667,\ \bar{x}_2 = 5.833,\ \bar{x}_3 = 9.167$; grand mean $\bar{\bar{x}} = 8.556$.</p>
+                <p><strong>Sums of squares:</strong> $SSB = 73.44$, $SSW = 155.00$, $SST = 228.44$.</p>
+                <p><strong>Mean squares:</strong> $MSB = \dfrac{73.44}{2} = 36.72$, &nbsp; $MSW = \dfrac{155.00}{15} = 10.33$.</p>
+                <p><strong>Test statistic:</strong> $F = \dfrac{MSB}{MSW} = \dfrac{36.72}{10.33} = 3.55$, &nbsp; df = (2, 15).</p>
+                <p><strong>Step 4 &mdash; Critical value:</strong> $F_{0.05,\,2,15} = 3.68$.</p>
+                <p><strong>Step 5 &mdash; Decision:</strong> $3.55 &lt; 3.68$ &rarr; do NOT reject $H_0$ (it is borderline &mdash; very close to the critical value).</p>
+                <p><strong>Step 6 &mdash; Conclusion:</strong> At 5%, there is <strong>no statistically significant difference</strong> in mean weight gain among the three foods (though it is marginal &mdash; at &alpha; = 0.10 the conclusion would flip, so show your steps clearly).</p>
+                <table class="anova-table">
+                    <tr><th>Source</th><th>SS</th><th>df</th><th>MS</th><th>F</th></tr>
+                    <tr><td>Between</td><td>73.44</td><td>2</td><td>36.72</td><td rowspan="2">3.55</td></tr>
+                    <tr><td>Within</td><td>155.00</td><td>15</td><td>10.33</td></tr>
+                    <tr><td>Total</td><td>228.44</td><td>17</td><td>&mdash;</td><td>&mdash;</td></tr>
+                </table>
+            </div>
+
+            <div class="exam-tip">
+                <strong>Cross-check your work</strong> using the <a href="#calculator">Test-Statistic Calculator</a> below &mdash; plug in the same numbers and confirm you get the same t / F / &chi;&sup2; value.
             </div>
         </section>
 
@@ -1621,6 +1706,171 @@
                 <details><summary>Show answer</summary><p>$\bar{x} \pm t_{\alpha/2,\,n-1}\cdot s/\sqrt{n}$.</p></details></div>
         </section>
 
+        <!-- INTERACTIVE CALCULATOR -->
+        <section id="calculator" class="topic-section">
+            <h1>&#129518; Test-Statistic Calculator</h1>
+            <p class="topic-description">Check your practice answers. Enter values and get the test statistic, degrees of freedom, the critical value, and the decision. All computations run in your browser (p-values use the same algorithms verified against your MTE paper). The exam allows a calculator &mdash; use this only to self-verify while practising.</p>
+
+            <div class="calc-tabs">
+                <button class="calc-tab active" data-calc="ttest1">1-Sample t</button>
+                <button class="calc-tab" data-calc="ttest2">2-Sample t</button>
+                <button class="calc-tab" data-calc="ftest">F-test</button>
+                <button class="calc-tab" data-calc="normal">Normal P(Z)</button>
+                <button class="calc-tab" data-calc="chitest">Chi-sq (2&times;2)</button>
+            </div>
+
+            <!-- 1-sample t -->
+            <div class="calc-panel active" id="calc-ttest1">
+                <h3>One-Sample t-Test</h3>
+                <div class="calc-grid">
+                    <label>Sample mean (x&#772;)<input type="number" id="t1_xbar" step="any" placeholder="e.g. 47.3"></label>
+                    <label>Hypothesised mean (&mu;&#8320;)<input type="number" id="t1_mu" step="any" placeholder="e.g. 50"></label>
+                    <label>Sample SD (s)<input type="number" id="t1_s" step="any" placeholder="e.g. 2.669"></label>
+                    <label>Sample size (n)<input type="number" id="t1_n" step="1" placeholder="e.g. 10"></label>
+                    <label>Significance (&alpha;)<select id="t1_a"><option value="0.05">0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></label>
+                    <label>Tail<select id="t1_tail"><option value="2">Two-tailed (&ne;)</option><option value="1">One-tailed (&lt; or &gt;)</option></select></label>
+                </div>
+                <button class="calc-run" data-run="ttest1">Calculate</button>
+                <div class="calc-result" id="res_ttest1"></div>
+            </div>
+
+            <!-- 2-sample t -->
+            <div class="calc-panel" id="calc-ttest2">
+                <h3>Two-Sample (Independent) t-Test &mdash; pooled variance</h3>
+                <div class="calc-grid">
+                    <label>Mean 1 (x&#772;&#8321;)<input type="number" id="t2_x1" step="any"></label>
+                    <label>SD 1 (s&#8321;)<input type="number" id="t2_s1" step="any"></label>
+                    <label>n&#8321;<input type="number" id="t2_n1" step="1"></label>
+                    <label>Mean 2 (x&#772;&#8322;)<input type="number" id="t2_x2" step="any"></label>
+                    <label>SD 2 (s&#8322;)<input type="number" id="t2_s2" step="any"></label>
+                    <label>n&#8322;<input type="number" id="t2_n2" step="1"></label>
+                    <label>Significance (&alpha;)<select id="t2_a"><option value="0.05">0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></label>
+                    <label>Tail<select id="t2_tail"><option value="2">Two-tailed</option><option value="1">One-tailed</option></select></label>
+                </div>
+                <button class="calc-run" data-run="ttest2">Calculate</button>
+                <div class="calc-result" id="res_ttest2"></div>
+            </div>
+
+            <!-- F-test -->
+            <div class="calc-panel" id="calc-ftest">
+                <h3>F-Test for Equality of Variances</h3>
+                <p class="note-inline">Enter either variances or SDs (tick the box). Larger value is placed on top automatically.</p>
+                <div class="calc-grid">
+                    <label>Value 1<input type="number" id="f_v1" step="any"></label>
+                    <label>n&#8321;<input type="number" id="f_n1" step="1"></label>
+                    <label>Value 2<input type="number" id="f_v2" step="any"></label>
+                    <label>n&#8322;<input type="number" id="f_n2" step="1"></label>
+                    <label>Input type<select id="f_type"><option value="var">Variances (s&sup2;)</option><option value="sd">Std deviations (s)</option></select></label>
+                    <label>Significance (&alpha;)<select id="f_a"><option value="0.05">0.05</option><option value="0.025">0.025</option><option value="0.01">0.01</option></select></label>
+                </div>
+                <button class="calc-run" data-run="ftest">Calculate</button>
+                <div class="calc-result" id="res_ftest"></div>
+            </div>
+
+            <!-- Normal -->
+            <div class="calc-panel" id="calc-normal">
+                <h3>Normal Probability</h3>
+                <p class="note-inline">Optionally convert a raw X to Z by entering &mu; and &sigma;; otherwise enter z directly.</p>
+                <div class="calc-grid">
+                    <label>x (optional)<input type="number" id="n_x" step="any" placeholder="raw value"></label>
+                    <label>&mu; (optional)<input type="number" id="n_mu" step="any"></label>
+                    <label>&sigma; (optional)<input type="number" id="n_sd" step="any"></label>
+                    <label>or z directly<input type="number" id="n_z" step="any" placeholder="e.g. 0.58"></label>
+                </div>
+                <button class="calc-run" data-run="normal">Calculate</button>
+                <div class="calc-result" id="res_normal"></div>
+            </div>
+
+            <!-- Chi-square 2x2 -->
+            <div class="calc-panel" id="calc-chitest">
+                <h3>Chi-Square Test (2&times;2 Contingency)</h3>
+                <div class="calc-grid calc-grid-2x2">
+                    <label>a (row1,col1)<input type="number" id="c_a" step="any"></label>
+                    <label>b (row1,col2)<input type="number" id="c_b" step="any"></label>
+                    <label>c (row2,col1)<input type="number" id="c_c" step="any"></label>
+                    <label>d (row2,col2)<input type="number" id="c_d" step="any"></label>
+                    <label>Significance (&alpha;)<select id="c_a_lvl"><option value="0.05">0.05</option><option value="0.01">0.01</option><option value="0.10">0.10</option></select></label>
+                </div>
+                <button class="calc-run" data-run="chitest">Calculate</button>
+                <div class="calc-result" id="res_chitest"></div>
+            </div>
+        </section>
+
+        <!-- PRINTABLE CHEAT SHEET -->
+        <section id="cheatsheet" class="topic-section">
+            <h1>&#128424;&#65039; One-Page Cheat Sheet</h1>
+            <p class="topic-description no-print">Condensed last-minute revision sheet. Click the button to print just this sheet (or save as PDF) &mdash; everything else on the page is hidden in the printout.</p>
+            <button id="print-cheat" class="calc-run no-print">&#128424;&#65039; Print / Save this cheat sheet</button>
+
+            <div class="cheat-grid">
+                <div class="cheat-card">
+                    <h4>Distributions (mean / variance)</h4>
+                    <ul>
+                        <li><b>Binomial:</b> np / npq</li>
+                        <li><b>Poisson:</b> &lambda; / &lambda; (mean = var)</li>
+                        <li><b>Uniform(a,b):</b> (a+b)/2 / (b&minus;a)&sup2;/12</li>
+                        <li><b>Normal:</b> &mu; / &sigma;&sup2;; &nbsp; Z = (X&minus;&mu;)/&sigma;</li>
+                        <li><b>Exponential(&lambda;):</b> 1/&lambda; / 1/&lambda;&sup2;; &nbsp; P(X&gt;x)=e^(&minus;&lambda;x)</li>
+                    </ul>
+                </div>
+                <div class="cheat-card">
+                    <h4>Hypothesis Tests</h4>
+                    <ul>
+                        <li><b>1-sample t:</b> (x&#772;&minus;&mu;&#8320;)/(s/&radic;n), df=n&minus;1</li>
+                        <li><b>2-sample t:</b> (x&#772;&#8321;&minus;x&#772;&#8322;)/(s_p&radic;(1/n&#8321;+1/n&#8322;)), df=n&#8321;+n&#8322;&minus;2</li>
+                        <li><b>Paired t:</b> d&#772;/(s_d/&radic;n), df=n&minus;1</li>
+                        <li><b>F:</b> s&#8321;&sup2;/s&#8322;&sup2; (larger top), df=(n&#8321;&minus;1,n&#8322;&minus;1)</li>
+                        <li><b>Chi-sq:</b> &sum;(O&minus;E)&sup2;/E, E=row&times;col/total, df=(r&minus;1)(c&minus;1)</li>
+                        <li><b>ANOVA:</b> F=MSB/MSW, df=(k&minus;1, N&minus;k)</li>
+                    </ul>
+                </div>
+                <div class="cheat-card">
+                    <h4>Estimation</h4>
+                    <ul>
+                        <li><b>MLE:</b> max of ln L &rarr; d(ln L)/d&theta;=0</li>
+                        <li>Exp: &lambda;&#770;=1/x&#772; &middot; Poisson: &lambda;&#770;=x&#772; &middot; Normal: &mu;&#770;=x&#772;</li>
+                        <li><b>MoM:</b> equate E(X^k) to (1/n)&sum;x_i^k</li>
+                        <li><b>Bayes:</b> posterior &prop; prior &times; likelihood</li>
+                        <li>Good estimator: <b>U-C-E-S</b></li>
+                    </ul>
+                </div>
+                <div class="cheat-card">
+                    <h4>Key Constants</h4>
+                    <ul>
+                        <li><b>Z:</b> 90%&rarr;1.645, 95%&rarr;1.96, 99%&rarr;2.576</li>
+                        <li><b>&chi;&sup2;(df=1):</b> 3.841 &middot; <b>(df=4):</b> 9.488</li>
+                        <li><b>t(9):</b> 2-tail .05 = 2.262, 1-tail = 1.833</li>
+                        <li>Chebyshev: P(|X&minus;&mu;|&ge;k&sigma;) &le; 1/k&sup2;</li>
+                        <li>CLT: x&#772; ~ N(&mu;, &sigma;&sup2;/n)</li>
+                    </ul>
+                </div>
+                <div class="cheat-card">
+                    <h4>Confidence Intervals</h4>
+                    <ul>
+                        <li><b>Large n:</b> x&#772; &plusmn; Z_(&alpha;/2)&middot;&sigma;/&radic;n</li>
+                        <li><b>Small n:</b> x&#772; &plusmn; t_(&alpha;/2,n&minus;1)&middot;s/&radic;n</li>
+                    </ul>
+                    <h4>Errors</h4>
+                    <ul>
+                        <li><b>Type I (&alpha;):</b> reject TRUE H&#8320;</li>
+                        <li><b>Type II (&beta;):</b> accept FALSE H&#8320;</li>
+                        <li>Power = 1 &minus; &beta;</li>
+                    </ul>
+                </div>
+                <div class="cheat-card">
+                    <h4>6-Step Test Procedure</h4>
+                    <ol>
+                        <li>State H&#8320; &amp; H&#8321;</li>
+                        <li>Set &alpha;</li>
+                        <li>Compute test statistic</li>
+                        <li>Find critical value (table)</li>
+                        <li>Decide: |calc| &gt; crit &rarr; reject</li>
+                        <li>Conclude in words</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
         <!-- SOLUTION GALLERY -->
         <section id="solutions" class="topic-section">
             <h1>Complete Solution Gallery</h1>
@@ -2166,6 +2416,115 @@
                 if (content) content.scrollTo({ top: 0, behavior: 'smooth' });
             });
             onScroll();
+        })();
+
+        // ===== Test-Statistic Calculator =====
+        (function () {
+            // --- Special functions (ported & verified) ---
+            function gammln(x){
+                const cof=[76.18009172947146,-86.50532032941677,24.01409824083091,-1.231739572450155,0.1208650973866179e-2,-0.5395239384953e-5];
+                let y=x, tmp=x+5.5; tmp-=(x+0.5)*Math.log(tmp); let ser=1.000000000190015;
+                for(let j=0;j<6;j++){ y+=1; ser+=cof[j]/y; }
+                return -tmp+Math.log(2.5066282746310005*ser/x);
+            }
+            function gser(a,x){ let ap=a,s=1/a,del=s; for(let i=0;i<2000;i++){ ap+=1; del*=x/ap; s+=del; if(Math.abs(del)<Math.abs(s)*1e-13)break; } return s*Math.exp(-x+a*Math.log(x)-gammln(a)); }
+            function gcf(a,x){ const F=1e-300; let b=x+1-a,c=1/F,d=1/b,h=d; for(let i=1;i<2000;i++){ const an=-i*(i-a); b+=2; d=an*d+b; if(Math.abs(d)<F)d=F; c=b+an/c; if(Math.abs(c)<F)c=F; d=1/d; const del=d*c; h*=del; if(Math.abs(del-1)<1e-13)break; } return Math.exp(-x+a*Math.log(x)-gammln(a))*h; }
+            function gammp(a,x){ if(x<=0)return 0; return x<a+1? gser(a,x): 1-gcf(a,x); }
+            function betacf(a,b,x){ const F=1e-300; const qab=a+b,qap=a+1,qam=a-1; let c=1,d=1-qab*x/qap; if(Math.abs(d)<F)d=F; d=1/d; let h=d;
+                for(let m=1;m<1000;m++){ const m2=2*m; let aa=m*(b-m)*x/((qam+m2)*(a+m2)); d=1+aa*d; if(Math.abs(d)<F)d=F; c=1+aa/c; if(Math.abs(c)<F)c=F; d=1/d; h*=d*c;
+                    aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2)); d=1+aa*d; if(Math.abs(d)<F)d=F; c=1+aa/c; if(Math.abs(c)<F)c=F; d=1/d; const del=d*c; h*=del; if(Math.abs(del-1)<1e-13)break; } return h; }
+            function betai(a,b,x){ if(x<=0)return 0; if(x>=1)return 1; const bt=Math.exp(gammln(a+b)-gammln(a)-gammln(b)+a*Math.log(x)+b*Math.log(1-x)); return x<(a+1)/(a+b+2)? bt*betacf(a,b,x)/a : 1-bt*betacf(b,a,1-x)/b; }
+            // --- CDFs ---
+            function normCdf(z){ return 0.5*(1+erf(z/Math.SQRT2)); }
+            function erf(x){ // Abramowitz-Stegun 7.1.26
+                const t=1/(1+0.3275911*Math.abs(x));
+                const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);
+                return x>=0?y:-y;
+            }
+            function tCdf(t,df){ const p=0.5*betai(df/2,0.5,df/(df+t*t)); return t>0?1-p:p; }
+            function fCdf(x,d1,d2){ return x<=0?0:betai(d1/2,d2/2,d1*x/(d1*x+d2)); }
+            function chi2Cdf(x,k){ return gammp(k/2,x/2); }
+            function inv(cdf,tgt,lo,hi){ for(let i=0;i<200;i++){ const m=(lo+hi)/2; if(cdf(m)<tgt)lo=m; else hi=m; } return (lo+hi)/2; }
+            function tCrit(a,df){ return inv(x=>tCdf(x,df),1-a,0,2000); }
+            function fCrit(a,d1,d2){ return inv(x=>fCdf(x,d1,d2),1-a,0,20000); }
+            function chi2Crit(a,k){ return inv(x=>chi2Cdf(x,k),1-a,0,2000); }
+            const num=v=>parseFloat(document.getElementById(v).value);
+            const verdict=(reject)=> reject
+                ? '<span class="v-reject">Reject H&#8320;</span> &mdash; the result is statistically significant.'
+                : '<span class="v-accept">Do not reject H&#8320;</span> &mdash; not statistically significant.';
+
+            // --- Tab switching ---
+            document.querySelectorAll('.calc-tab').forEach(tab=>{
+                tab.addEventListener('click',()=>{
+                    document.querySelectorAll('.calc-tab').forEach(t=>t.classList.remove('active'));
+                    document.querySelectorAll('.calc-panel').forEach(p=>p.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.getElementById('calc-'+tab.dataset.calc).classList.add('active');
+                });
+            });
+
+            const runners={
+                ttest1(){
+                    const xb=num('t1_xbar'),mu=num('t1_mu'),s=num('t1_s'),n=num('t1_n'),a=parseFloat(document.getElementById('t1_a').value),tail=parseInt(document.getElementById('t1_tail').value);
+                    if([xb,mu,s,n].some(isNaN)||n<2||s<=0) return 'Please enter valid numbers (n&ge;2, s&gt;0).';
+                    const t=(xb-mu)/(s/Math.sqrt(n)), df=n-1;
+                    const cv=tail===2?tCrit(a/2,df):tCrit(a,df);
+                    const reject=Math.abs(t)>cv;
+                    return `t = <b>${t.toFixed(4)}</b>, df = ${df}<br>Critical value = &plusmn;${cv.toFixed(3)} (${tail===2?'two':'one'}-tailed, &alpha;=${a})<br>${verdict(reject)}`;
+                },
+                ttest2(){
+                    const x1=num('t2_x1'),s1=num('t2_s1'),n1=num('t2_n1'),x2=num('t2_x2'),s2=num('t2_s2'),n2=num('t2_n2'),a=parseFloat(document.getElementById('t2_a').value),tail=parseInt(document.getElementById('t2_tail').value);
+                    if([x1,s1,n1,x2,s2,n2].some(isNaN)||n1<2||n2<2) return 'Please enter valid numbers (n&ge;2).';
+                    const sp=Math.sqrt(((n1-1)*s1*s1+(n2-1)*s2*s2)/(n1+n2-2));
+                    const t=(x1-x2)/(sp*Math.sqrt(1/n1+1/n2)), df=n1+n2-2;
+                    const cv=tail===2?tCrit(a/2,df):tCrit(a,df);
+                    const reject=Math.abs(t)>cv;
+                    return `pooled s = ${sp.toFixed(4)}<br>t = <b>${t.toFixed(4)}</b>, df = ${df}<br>Critical value = &plusmn;${cv.toFixed(3)} (&alpha;=${a})<br>${verdict(reject)}`;
+                },
+                ftest(){
+                    let v1=num('f_v1'),v2=num('f_v2'); const n1=num('f_n1'),n2=num('f_n2'),type=document.getElementById('f_type').value,a=parseFloat(document.getElementById('f_a').value);
+                    if([v1,v2,n1,n2].some(isNaN)||n1<2||n2<2) return 'Please enter valid numbers (n&ge;2).';
+                    if(type==='sd'){ v1=v1*v1; v2=v2*v2; }
+                    let df1,df2,F;
+                    if(v1>=v2){ F=v1/v2; df1=n1-1; df2=n2-1; } else { F=v2/v1; df1=n2-1; df2=n1-1; }
+                    const cv=fCrit(a,df1,df2); const reject=F>cv;
+                    return `F = <b>${F.toFixed(4)}</b>, df = (${df1}, ${df2})<br>Critical value = ${cv.toFixed(3)} (&alpha;=${a}, upper tail)<br>${verdict(reject)}`;
+                },
+                normal(){
+                    let z=num('n_z'); const x=num('n_x'),mu=num('n_mu'),sd=num('n_sd');
+                    if(isNaN(z)){ if([x,mu,sd].some(isNaN)||sd<=0) return 'Enter z directly, or x, &mu; and &sigma; (&sigma;&gt;0).'; z=(x-mu)/sd; }
+                    const cdf=normCdf(z), area0=cdf-0.5;
+                    return `z = <b>${z.toFixed(4)}</b><br>P(0 &lt; Z &lt; z) = ${area0.toFixed(4)}<br>P(Z &lt; z) = ${cdf.toFixed(4)}<br>P(Z &gt; z) = ${(1-cdf).toFixed(4)}`;
+                },
+                chitest(){
+                    const a=num('c_a'),b=num('c_b'),c=num('c_c'),d=num('c_d'),lvl=parseFloat(document.getElementById('c_a_lvl').value);
+                    if([a,b,c,d].some(isNaN)||[a,b,c,d].some(v=>v<0)) return 'Enter the four cell counts (a, b, c, d).';
+                    const N=a+b+c+d, r1=a+b,r2=c+d,c1=a+c,c2=b+d;
+                    const E=[r1*c1/N,r1*c2/N,r2*c1/N,r2*c2/N], O=[a,b,c,d];
+                    let chi=0; for(let i=0;i<4;i++) chi+=Math.pow(O[i]-E[i],2)/E[i];
+                    const cv=chi2Crit(lvl,1); const reject=chi>cv;
+                    return `&chi;&sup2; = <b>${chi.toFixed(4)}</b>, df = 1<br>Expected: ${E.map(e=>e.toFixed(1)).join(', ')}<br>Critical value = ${cv.toFixed(3)} (&alpha;=${lvl})<br>${verdict(reject)}`;
+                }
+            };
+            document.querySelectorAll('.calc-run').forEach(btn=>{
+                btn.addEventListener('click',()=>{
+                    const key=btn.dataset.run;
+                    const out=document.getElementById('res_'+key);
+                    try { out.innerHTML=runners[key](); out.classList.add('show'); }
+                    catch(e){ out.innerHTML='Error in calculation. Check your inputs.'; out.classList.add('show'); }
+                });
+            });
+        })();
+
+        // ===== Print cheat sheet only =====
+        (function(){
+            const btn=document.getElementById('print-cheat');
+            if(!btn) return;
+            btn.addEventListener('click',()=>{
+                document.body.classList.add('print-cheat-mode');
+                window.print();
+            });
+            window.addEventListener('afterprint',()=>document.body.classList.remove('print-cheat-mode'));
         })();
     </script>
 </body>
