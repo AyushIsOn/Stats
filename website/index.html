@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAS2001 - Statistical Methods & Probability Theory | Complete Study Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
+</head>
+<body>
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h2>MAS2001</h2>
+            <p>Study Guide</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#overview" class="active">Overview & Exam Pattern</a></li>
+            <li class="nav-section">Priority 1 - CRITICAL (25%)</li>
+            <li><a href="#topic5">Hypothesis Testing (t, F, Chi-sq, ANOVA)</a></li>
+            <li class="nav-section">Priority 2 - CRITICAL (21.25%)</li>
+            <li><a href="#topic2">Distributions + CLT</a></li>
+            <li class="nav-section">Priority 3 - CRITICAL (21.25%)</li>
+            <li><a href="#topic3">Estimation Theory (MLE, MoM, Sufficiency)</a></li>
+            <li class="nav-section">Priority 4 - HIGH (17.5%)</li>
+            <li><a href="#topic1">Probability & Random Variables</a></li>
+            <li class="nav-section">Priority 5 - HIGH (15%)</li>
+            <li><a href="#topic4">Bayesian Est. + CI + Hypothesis Intro</a></li>
+            <li class="nav-section">Resources</li>
+            <li><a href="#solutions">Solution Gallery</a></li>
+            <li><a href="#tables">Statistical Tables</a></li>
+            <li><a href="#formulas">Formula Sheet</a></li>
+        </ul>
+    </nav>
+    <main id="content">
+
+        <!-- OVERVIEW SECTION -->
+        <section id="overview" class="topic-section">
+            <h1>MAS2001 - Statistical Methods & Probability Theory</h1>
+            <p class="subtitle">Manipal University Jaipur | B.Tech CSE-DS | IV Semester | Jan-May 2025</p>
+            <p class="subtitle">Course Instructor: Dr. Reema Jain | Credits: 3 (L:2, T:1, P:0)</p>
+
+            <div class="exam-pattern-grid">
+                <div class="exam-card">
+                    <h3>Mid-Term Exam (MTE)</h3>
+                    <table>
+                        <tr><th>Section</th><th>Questions</th><th>Marks Each</th><th>Total</th></tr>
+                        <tr><td>A (MCQ)</td><td>3</td><td>2</td><td>6</td></tr>
+                        <tr><td>B (Concept)</td><td>4</td><td>4</td><td>16</td></tr>
+                        <tr><td>C (Analytical)</td><td>1</td><td>8 (4+4)</td><td>8</td></tr>
+                        <tr class="total-row"><td colspan="3">Total</td><td>30</td></tr>
+                    </table>
+                    <p><strong>Duration:</strong> 1.5 hours | <strong>Type:</strong> Closed book, Calculator allowed</p>
+                </div>
+                <div class="exam-card">
+                    <h3>End-Term Exam (ETE) - April 2025</h3>
+                    <table>
+                        <tr><th>Section</th><th>Questions</th><th>Marks Each</th><th>Total</th></tr>
+                        <tr><td>A</td><td>5</td><td>2</td><td>10</td></tr>
+                        <tr><td>B</td><td>6</td><td>5</td><td>30</td></tr>
+                        <tr><td>C</td><td>2</td><td>10</td><td>20</td></tr>
+                        <tr><td>D</td><td>2</td><td>10</td><td>20</td></tr>
+                        <tr class="total-row"><td colspan="3">Total</td><td>80</td></tr>
+                    </table>
+                    <p><strong>Assessment:</strong> MTE (30) + CWS (30) + ETE (40) = 100</p>
+                </div>
+            </div>
+
+            <h2>Topic-wise Weightage (ETE Blueprint - Official)</h2>
+            <div class="weightage-chart">
+                <div class="weight-bar" style="--weight: 25%;">
+                    <span class="weight-label">Hypothesis Testing (t, F, Chi-sq, ANOVA)</span>
+                    <span class="weight-value">20 marks (25%)</span>
+                </div>
+                <div class="weight-bar" style="--weight: 21.25%;">
+                    <span class="weight-label">CLT + Distributions (Binomial, Poisson, Uniform, Normal)</span>
+                    <span class="weight-value">17 marks (21.25%)</span>
+                </div>
+                <div class="weight-bar" style="--weight: 21.25%;">
+                    <span class="weight-label">Exponential + Estimation (MLE, MoM, Sufficiency)</span>
+                    <span class="weight-value">17 marks (21.25%)</span>
+                </div>
+                <div class="weight-bar" style="--weight: 17.5%;">
+                    <span class="weight-label">Probability Theory & Random Variables</span>
+                    <span class="weight-value">14 marks (17.5%)</span>
+                </div>
+                <div class="weight-bar" style="--weight: 15%;">
+                    <span class="weight-label">Bayesian Est. + CI + Hypothesis Basics</span>
+                    <span class="weight-value">12 marks (15%)</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TOPIC 5: HYPOTHESIS TESTING - HIGHEST PRIORITY (25%) -->
+        <section id="topic5" class="topic-section">
+            <div class="priority-badge critical">PRIORITY 1 - 20 Marks (25%)</div>
+            <h1>Hypothesis Testing (t-test, F-test, Chi-Square, ANOVA)</h1>
+            <p class="topic-description">This is the highest-weighted topic in ETE. Covers testing of single mean, two means (independent & paired), variance comparison, independence of attributes, and one-way ANOVA.</p>
+
+            <div class="material-ref">
+                <h3>Material References</h3>
+                <ul>
+                    <li>Testing of Hypothesis 1.pdf - Introduction, Basics</li>
+                    <li>Testing of Hypothesis 2 t test.pdf - t-test for single & two means</li>
+                    <li>Testing of Hypothsis_t test independent samples.pdf - Independent samples t-test</li>
+                    <li>Testing of Hypothesis 3 F test.pdf - F-test for variances</li>
+                    <li>Testing of Hypothesis 4_ chi square test.pdf - Chi-square test</li>
+                    <li>ANOVA.pdf & One Way ANOVA.pdf - Analysis of Variance</li>
+                    <li>flipped activity_MAS2001.pdf - Paired t-test (Dependent samples)</li>
+                </ul>
+            </div>
+
+            <h2>Key Concepts & Theory</h2>
+            
+            <div class="concept-box">
+                <h3>Definitions (Section A - Memorize)</h3>
+                <dl>
+                    <dt>Statistical Hypothesis</dt>
+                    <dd>An assertion or conjecture about the distribution of one or more random variables (population parameters).</dd>
+                    <dt>Null Hypothesis ($H_0$)</dt>
+                    <dd>The hypothesis being tested - typically states "no effect" or "no difference". We assume it to be true unless evidence suggests otherwise.</dd>
+                    <dt>Alternative Hypothesis ($H_1$)</dt>
+                    <dd>The hypothesis accepted when $H_0$ is rejected. Can be one-tailed ($\mu > \mu_0$ or $\mu < \mu_0$) or two-tailed ($\mu \neq \mu_0$).</dd>
+                    <dt>Type I Error ($\alpha$)</dt>
+                    <dd>Rejecting $H_0$ when it is actually TRUE. Probability = level of significance.</dd>
+                    <dt>Type II Error ($\beta$)</dt>
+                    <dd>Accepting (failing to reject) $H_0$ when it is actually FALSE.</dd>
+                    <dt>Critical Region</dt>
+                    <dd>The set of values of the test statistic that leads to rejection of $H_0$.</dd>
+                    <dt>Level of Significance</dt>
+                    <dd>The maximum probability of Type I error we are willing to tolerate (usually 0.05 or 0.01).</dd>
+                    <dt>Confidence Interval & Limits</dt>
+                    <dd>A range of values within which the true parameter is likely to lie. Limits are the endpoints of this interval.</dd>
+                </dl>
+            </div>
+
+
+            <div class="concept-box">
+                <h3>t-test for Single Mean</h3>
+                <p><strong>When to use:</strong> Testing if a population mean equals a specified value when population variance is unknown and sample is small (n &lt; 30).</p>
+                <div class="formula">
+                    $$t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}, \quad df = n-1$$
+                </div>
+                <p><strong>Decision Rule:</strong></p>
+                <ul>
+                    <li>Two-tailed: Reject $H_0$ if $|t_{calc}| > t_{\alpha/2, n-1}$</li>
+                    <li>One-tailed (right): Reject $H_0$ if $t_{calc} > t_{\alpha, n-1}$</li>
+                    <li>One-tailed (left): Reject $H_0$ if $t_{calc} < -t_{\alpha, n-1}$</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>t-test for Two Independent Means</h3>
+                <p><strong>When to use:</strong> Comparing means of two independent groups (assuming equal variances).</p>
+                <div class="formula">
+                    $$t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}, \quad df = n_1 + n_2 - 2$$
+                </div>
+                <p>Where pooled standard deviation: $s_p = \sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2}}$</p>
+            </div>
+
+            <div class="concept-box">
+                <h3>Paired t-test (Dependent Samples)</h3>
+                <p><strong>When to use:</strong> When observations are paired (before/after, husband/wife, left/right hand).</p>
+                <div class="formula">
+                    $$t = \frac{\bar{d}}{s_d / \sqrt{n}}, \quad df = n-1$$
+                </div>
+                <p>Where $\bar{d}$ = mean of differences, $s_d$ = standard deviation of differences, $n$ = number of pairs.</p>
+            </div>
+
+            <div class="concept-box">
+                <h3>F-test (Test of Variances)</h3>
+                <p><strong>When to use:</strong> Comparing variances of two populations.</p>
+                <div class="formula">
+                    $$F = \frac{s_1^2}{s_2^2} \quad (s_1^2 > s_2^2), \quad df_1 = n_1-1, \quad df_2 = n_2-1$$
+                </div>
+                <p><strong>Rule:</strong> Always put larger variance in numerator. Reject $H_0$ if $F_{calc} > F_{\alpha, df_1, df_2}$.</p>
+            </div>
+
+            <div class="concept-box">
+                <h3>Chi-Square Test (Independence of Attributes)</h3>
+                <p><strong>When to use:</strong> Testing if two categorical variables are independent.</p>
+                <div class="formula">
+                    $$\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}, \quad E_i = \frac{(\text{Row Total}) \times (\text{Column Total})}{\text{Grand Total}}$$
+                </div>
+                <p>$df = (r-1)(c-1)$ where r = rows, c = columns. Reject $H_0$ if $\chi^2_{calc} > \chi^2_{\alpha, df}$.</p>
+            </div>
+
+            <div class="concept-box">
+                <h3>One-Way ANOVA</h3>
+                <p><strong>When to use:</strong> Comparing means of 3 or more groups simultaneously.</p>
+                <p>$H_0: \mu_1 = \mu_2 = ... = \mu_k$ vs $H_1:$ At least one mean differs</p>
+                <div class="formula">
+                    $$F = \frac{MSB}{MSW} = \frac{SSB/(k-1)}{SSW/(N-k)}$$
+                </div>
+                <table class="anova-table">
+                    <tr><th>Source</th><th>SS</th><th>df</th><th>MS</th><th>F</th></tr>
+                    <tr><td>Between</td><td>$SSB = \sum n_i(\bar{x}_i - \bar{\bar{x}})^2$</td><td>k-1</td><td>SSB/(k-1)</td><td rowspan="2">MSB/MSW</td></tr>
+                    <tr><td>Within</td><td>$SSW = \sum\sum(x_{ij} - \bar{x}_i)^2$</td><td>N-k</td><td>SSW/(N-k)</td></tr>
+                    <tr><td>Total</td><td>$SST = \sum\sum(x_{ij} - \bar{\bar{x}})^2$</td><td>N-1</td><td>-</td><td>-</td></tr>
+                </table>
+            </div>
+
+
+            <h2>Questions from Assignments & PYQs</h2>
+            <p class="repeat-note">Questions marked with <span class="hot-badge">REPEATED</span> appear multiple times across assignments/PYQs and have HIGH probability of appearing in ETE.</p>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 B1 + Assignment 4 Q10A</span><span class="hot-badge">REPEATED</span></div>
+                <p><strong>Q:</strong> The heights of 10 adult males selected at random from a given locality had a mean of 158 cm and variance 39.0625 cm. Test at 5% level of significance, the hypothesis that the adult males of the given locality are on the average less than 162.5 cm tall.</p>
+                <details><summary>Solution Approach</summary>
+                <p>$H_0: \mu = 162.5$, $H_1: \mu < 162.5$ (one-tailed left)</p>
+                <p>$t = \frac{158 - 162.5}{6.25/\sqrt{10}} = \frac{-4.5}{1.976} = -2.277$</p>
+                <p>$t_{0.05, 9} = 1.833$. Since $|t_{calc}| > t_{tab}$, reject $H_0$.</p>
+                <p>Conclusion: Males are significantly shorter than 162.5 cm.</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sidharth_Assign5_page1.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 B2 (both versions)</span><span class="hot-badge">REPEATED</span></div>
+                <p><strong>Q:</strong> Two types of batteries, X and Y are tested for their length of life: Battery A: n=10, mean=1000, variance=100. Battery B: n=12, mean=2000, variance=121. Is there a significant difference between the two means?</p>
+                <details><summary>Solution Approach</summary>
+                <p>$H_0: \mu_1 = \mu_2$, $H_1: \mu_1 \neq \mu_2$</p>
+                <p>$s_p = \sqrt{\frac{9(100) + 11(121)}{20}} = \sqrt{\frac{900+1331}{20}} = \sqrt{111.55} = 10.56$</p>
+                <p>$t = \frac{1000-2000}{10.56\sqrt{1/10+1/12}} = \frac{-1000}{10.56 \times 0.4282} = -221.0$</p>
+                <p>Clearly significant. Reject $H_0$.</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sidharth_Assign5_page2.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 B3 + Assignment 4 Q11A</span><span class="hot-badge">REPEATED</span></div>
+                <p><strong>Q:</strong> A travel agency's marketing brochure indicates that the standard deviations of hotel rates for two cities are the same. A random sample of 13 rooms rates has SD = $27.50 and a sample of 16 hotel room rates has SD = $29.75. Can you reject the agency's claim at $\alpha$ = 0.01?</p>
+                <details><summary>Solution Approach</summary>
+                <p>$H_0: \sigma_1^2 = \sigma_2^2$, $H_1: \sigma_1^2 \neq \sigma_2^2$</p>
+                <p>$F = \frac{29.75^2}{27.50^2} = \frac{885.0625}{756.25} = 1.17$</p>
+                <p>$F_{0.01, 15, 12}$ (tabulated = 4.72). Since $F_{calc} < F_{tab}$, do not reject $H_0$.</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sidharth_Assign5_page3.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 C1 + Assignment 4 Q12B</span><span class="hot-badge">REPEATED</span></div>
+                <p><strong>Q:</strong> Certain pesticides are packed into bags by a machine. A random sample of 10 bags: 50, 49, 44, 52, 45, 48, 46, 45, 49, 45. Test if the average packing can be taken as 50 kg.</p>
+                <details><summary>Solution Approach</summary>
+                <p>$\bar{x} = 47.3$, $s = 2.67$, $H_0: \mu = 50$, $H_1: \mu \neq 50$</p>
+                <p>$t = \frac{47.3-50}{2.67/\sqrt{10}} = \frac{-2.7}{0.844} = -3.2$</p>
+                <p>$t_{0.025, 9} = 2.262$. Since $|t_{calc}| > t_{tab}$, reject $H_0$.</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page1.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 C2 + D2</span><span class="hot-badge">REPEATED</span></div>
+                <p><strong>Q:</strong> In a test given to two groups of students, marks obtained: First Group: 18, 20, 36, 50, 49, 36, 34, 49, 41. Second Group: 29, 28, 26, 35, 30, 44, 46. Test if the average marks differ significantly.</p>
+                <details><summary>Solution Approach</summary>
+                <p>Use independent samples t-test. Calculate means, pooled SD, then t-statistic with df = n1+n2-2 = 14.</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page3.png" alt="Solution" loading="lazy">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page4.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 C3 + D3 + Assignment 4 Q11B</span><span class="hot-badge">REPEATED 3x</span></div>
+                <p><strong>Q:</strong> Consider measurements of heat producing capacity of coal from two mines: Mine 1: 8260, 8130, 8350, 8070, 8340. Mine 2: 7950, 7890, 7900, 8140, 7920, 7840. Can it be concluded that the two population variances are equal?</p>
+                <details><summary>Solution Approach</summary>
+                <p>$H_0: \sigma_1^2 = \sigma_2^2$, $H_1: \sigma_1^2 \neq \sigma_2^2$</p>
+                <p>Calculate $s_1^2$ and $s_2^2$, then $F = s_{larger}^2/s_{smaller}^2$</p>
+                <p>Compare with $F_{\alpha/2, df_1, df_2}$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page5.png" alt="Solution" loading="lazy">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page6.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 B4 (both versions)</span><span class="hot-badge">REPEATED</span></div>
+                <p><strong>Q:</strong> In a certain sample of 2,000 families, 1,400 people are consumers of tea. Out of 1,800 Hindu families, 1,236 families are consumers of tea. State whether there is any significant difference between consumption of tea among Hindu and non-Hindu families. (Tabulated value: 3.841)</p>
+                <details><summary>Solution Approach</summary>
+                <p>This is a Chi-square test for independence. Create 2x2 contingency table:</p>
+                <table>
+                    <tr><th></th><th>Tea Consumer</th><th>Not Consumer</th><th>Total</th></tr>
+                    <tr><td>Hindu</td><td>1236</td><td>564</td><td>1800</td></tr>
+                    <tr><td>Non-Hindu</td><td>164</td><td>36</td><td>200</td></tr>
+                    <tr><td>Total</td><td>1400</td><td>600</td><td>2000</td></tr>
+                </table>
+                <p>Calculate expected values and $\chi^2$ statistic.</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sidharth_Assign5_page5.png" alt="Solution" loading="lazy">
+                    <img src="images/Sidharth_Assign5_page6.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 B5 + C5 + D5</span><span class="hot-badge">REPEATED - ANOVA</span></div>
+                <p><strong>Q:</strong> Three different kinds of food are tested on three groups of rats for 5 weeks. The objective is to check the difference in mean weight (in grams). Apply one-way ANOVA at 0.05 significance:</p>
+                <table>
+                    <tr><th>Food I</th><th>Food II</th><th>Food III</th></tr>
+                    <tr><td>8</td><td>4</td><td>11</td></tr>
+                    <tr><td>12</td><td>5</td><td>8</td></tr>
+                    <tr><td>19</td><td>4</td><td>7</td></tr>
+                    <tr><td>8</td><td>6</td><td>13</td></tr>
+                    <tr><td>6</td><td>9</td><td>7</td></tr>
+                    <tr><td>11</td><td>7</td><td>9</td></tr>
+                </table>
+                <details><summary>Solution Approach</summary>
+                <p>1. Find group means: $\bar{x}_1, \bar{x}_2, \bar{x}_3$ and grand mean $\bar{\bar{x}}$</p>
+                <p>2. Calculate SSB, SSW, SST</p>
+                <p>3. Build ANOVA table and compare F with tabulated value</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sidharth_Assign5_page7.png" alt="ANOVA Solution" loading="lazy">
+                    <img src="images/Sidharth_Assign5_page8.png" alt="ANOVA Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 C5</span></div>
+                <p><strong>Q:</strong> Three different techniques (medication, exercises, special diet) are tested to lower blood pressure. Test at 5% level whether there is significant difference:</p>
+                <table>
+                    <tr><th>Medication</th><th>Exercise</th><th>Diet</th></tr>
+                    <tr><td>10</td><td>6</td><td>5</td></tr>
+                    <tr><td>12</td><td>8</td><td>9</td></tr>
+                    <tr><td>9</td><td>3</td><td>12</td></tr>
+                    <tr><td>15</td><td>0</td><td>8</td></tr>
+                    <tr><td>13</td><td>2</td><td>4</td></tr>
+                </table>
+                <div class="solution-images">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page9.png" alt="Solution" loading="lazy">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page10.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 D1</span></div>
+                <p><strong>Q:</strong> The lifetime of electric bulbs for a random sample of 10 gave: 4.2, 4.6, 4.1, 3.9, 5.2, 3.8, 3.9, 4.3, 4.4, 5.6 (in thousand hours). Can we accept the hypothesis that the average lifetime is 4000 hours?</p>
+                <div class="solution-images">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page11.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 D2</span></div>
+                <p><strong>Q:</strong> For a random sample of 10 persons fed on diet A, increased weight: 10, 6, 16, 17, 13, 12, 8, 14, 15, 9. For 12 persons fed on diet B: 7, 13, 22, 15, 12, 14, 18, 8, 21, 23, 10, 17. Test whether diets differ significantly.</p>
+                <div class="solution-images">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page12.png" alt="Solution" loading="lazy">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page13.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 5 C4</span></div>
+                <p><strong>Q:</strong> 1,000 families selected to test belief that high income families send children to public schools. Test independence:</p>
+                <table>
+                    <tr><th>Income</th><th>Public School</th><th>Govt School</th><th>Total</th></tr>
+                    <tr><td>Low</td><td>370</td><td>430</td><td>800</td></tr>
+                    <tr><td>High</td><td>130</td><td>70</td><td>200</td></tr>
+                    <tr><td>Total</td><td>500</td><td>500</td><td>1000</td></tr>
+                </table>
+                <div class="solution-images">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page7.png" alt="Solution" loading="lazy">
+                    <img src="images/ass5-_CamScan_20-11-2024_01-09-051_page8.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <h3>ANOVA Reference Material</h3>
+            <div class="material-gallery">
+                <img src="images/OneWay_ANOVA_page1.png" alt="ANOVA Material" loading="lazy">
+                <img src="images/OneWay_ANOVA_page2.png" alt="ANOVA Material" loading="lazy">
+                <img src="images/OneWay_ANOVA_page3.png" alt="ANOVA Material" loading="lazy">
+                <img src="images/OneWay_ANOVA_page4.png" alt="ANOVA Material" loading="lazy">
+                <img src="images/OneWay_ANOVA_page5.png" alt="ANOVA Material" loading="lazy">
+            </div>
+        </section>
+
+
+        <!-- TOPIC 2: DISTRIBUTIONS + CLT (21.25%) -->
+        <section id="topic2" class="topic-section">
+            <div class="priority-badge critical">PRIORITY 2 - 17 Marks (21.25%)</div>
+            <h1>Probability Distributions + Central Limit Theorem</h1>
+            <p class="topic-description">Covers Binomial, Poisson, Uniform, Normal distributions and Central Limit Theorem. These are the most commonly tested numerical problems.</p>
+
+            <div class="material-ref">
+                <h3>Material References</h3>
+                <ul>
+                    <li>PPTs(L1-L8)_Basic Probability, RV, CI.pdf - Lectures on distributions</li>
+                    <li>probability_&_random_variable 2024.pdf - Additional distribution notes</li>
+                    <li>SP midsem notes.pdf - Mid-sem preparation notes</li>
+                    <li>Sourav Notes MTE.pdf - Comprehensive MTE notes with solved examples</li>
+                </ul>
+            </div>
+
+            <h2>Key Concepts & Theory</h2>
+
+            <div class="concept-box">
+                <h3>Binomial Distribution</h3>
+                <p><strong>When:</strong> Fixed number of trials (n), each with same probability (p), independent, two outcomes.</p>
+                <div class="formula">
+                    $$P(X=x) = \binom{n}{x} p^x q^{n-x}, \quad x = 0, 1, 2, ..., n$$
+                </div>
+                <p><strong>Mean:</strong> $E(X) = np$ | <strong>Variance:</strong> $Var(X) = npq$ where $q = 1-p$</p>
+                <p><strong>Key Properties:</strong></p>
+                <ul>
+                    <li>$Mean > Variance$ always (since $q < 1$)</li>
+                    <li>If mean = variance, it's NOT binomial</li>
+                    <li>Sum of two Binomial RVs with same p is also Binomial</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Poisson Distribution</h3>
+                <p><strong>When:</strong> Counting rare events in a fixed interval (time/area/volume). n large, p small, $\lambda = np$ moderate.</p>
+                <div class="formula">
+                    $$P(X=x) = \frac{e^{-\lambda} \lambda^x}{x!}, \quad x = 0, 1, 2, ...$$
+                </div>
+                <p><strong>Mean = Variance = $\lambda$</strong></p>
+                <p><strong>Key Properties:</strong></p>
+                <ul>
+                    <li>Mean = Variance (unique identifying property)</li>
+                    <li>Sum of independent Poisson RVs is Poisson with $\lambda = \lambda_1 + \lambda_2$</li>
+                    <li>If $P(X=k) = P(X=k+1)$, then $\lambda = k+1$</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Uniform Distribution</h3>
+                <p><strong>When:</strong> All outcomes equally likely in an interval [a, b].</p>
+                <div class="formula">
+                    $$f(x) = \frac{1}{b-a}, \quad a \leq x \leq b$$
+                </div>
+                <p><strong>Mean:</strong> $\frac{a+b}{2}$ | <strong>Variance:</strong> $\frac{(b-a)^2}{12}$</p>
+                <p><strong>CDF:</strong> $F(x) = \frac{x-a}{b-a}$</p>
+            </div>
+
+            <div class="concept-box">
+                <h3>Normal Distribution</h3>
+                <p><strong>When:</strong> Continuous data that is symmetric, bell-shaped.</p>
+                <div class="formula">
+                    $$f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}, \quad -\infty < x < \infty$$
+                </div>
+                <p><strong>Standard Normal:</strong> $Z = \frac{X - \mu}{\sigma}$, then $Z \sim N(0,1)$</p>
+                <p><strong>Key Properties:</strong></p>
+                <ul>
+                    <li>68% within $\pm 1\sigma$, 95% within $\pm 2\sigma$, 99.7% within $\pm 3\sigma$</li>
+                    <li>Mean = Median = Mode</li>
+                    <li>Sum of normal RVs is also normal</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Central Limit Theorem (CLT)</h3>
+                <p><strong>Statement:</strong> If $X_1, X_2, ..., X_n$ are i.i.d. random variables with mean $\mu$ and variance $\sigma^2$, then as $n \to \infty$:</p>
+                <div class="formula">
+                    $$\bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right) \quad \text{or} \quad Z = \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)$$
+                </div>
+                <p><strong>Key Point:</strong> Works regardless of the original distribution (for $n \geq 30$).</p>
+                <p><strong>Application:</strong> Used to find probability that sample mean lies in a given range.</p>
+            </div>
+
+
+            <h2>Questions from Assignments & PYQs</h2>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">MTE 2024 Q-A1</span><span class="hot-badge">PYQ</span></div>
+                <p><strong>Q:</strong> A Poisson variate X has mean equal to 0.5. If Y=2X, then which is correct?</p>
+                <p>i. E(Y)=1 &nbsp; ii. Var(Y)=4 &nbsp; iii. Var(Y)=2 &nbsp; iv. E(Y)=2</p>
+                <details><summary>Solution</summary>
+                <p>$E(X) = 0.5$, $Var(X) = 0.5$ (for Poisson, mean = variance)</p>
+                <p>$E(Y) = E(2X) = 2E(X) = 2(0.5) = 1$ ✓ (i)</p>
+                <p>$Var(Y) = Var(2X) = 4 \cdot Var(X) = 4(0.5) = 2$ ✓ (iii)</p>
+                <p><strong>Answer: (c) (i) and (iii) only</strong></p>
+                </details>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">MTE 2024 Q-B1</span><span class="hot-badge">PYQ</span></div>
+                <p><strong>Q:</strong> If X and Y are independent Poisson variates such that $P(X=1)=P(X=2)$ and $P(Y=2)=P(Y=3)$. Find the variance of $X-2Y$.</p>
+                <details><summary>Solution</summary>
+                <p>For Poisson: $P(X=k) = e^{-\lambda}\lambda^k/k!$</p>
+                <p>$P(X=1) = P(X=2)$: $e^{-\lambda_1}\lambda_1 = e^{-\lambda_1}\lambda_1^2/2$ → $\lambda_1 = 2$</p>
+                <p>$P(Y=2) = P(Y=3)$: $e^{-\lambda_2}\lambda_2^2/2 = e^{-\lambda_2}\lambda_2^3/6$ → $\lambda_2 = 3$</p>
+                <p>For Poisson: mean = variance = $\lambda$</p>
+                <p>$Var(X-2Y) = Var(X) + 4Var(Y) = 2 + 4(3) = 14$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/MTE_soln_page1.png" alt="MTE Solution" loading="lazy">
+                    <img src="images/MTE_soln_page2.png" alt="MTE Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">MTE 2024 Q-B2 + Assignment 2 Q20</span><span class="hot-badge">REPEATED</span></div>
+                <p><strong>Q:</strong> The length of time a person speaks over the phone follows exponential distribution with parameter 1/4. Find probability that person will talk for (i) more than 6 minutes (ii) between 7 and 12 minutes (iii) not more than 5 minutes. Also find mean and variance.</p>
+                <details><summary>Solution</summary>
+                <p>$f(x) = \frac{1}{4}e^{-x/4}$, Mean = $1/\lambda = 4$, Variance = $1/\lambda^2 = 16$</p>
+                <p>(i) $P(X>6) = e^{-6/4} = e^{-1.5} = 0.2231$</p>
+                <p>(ii) $P(7<X<12) = e^{-7/4} - e^{-12/4} = e^{-1.75} - e^{-3} = 0.1738 - 0.0498 = 0.124$</p>
+                <p>(iii) $P(X \leq 5) = 1 - e^{-5/4} = 1 - e^{-1.25} = 1 - 0.2865 = 0.7135$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/MTE_soln_page3.png" alt="MTE Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">MTE 2024 Q-B4 + Assignment 2 Q9</span><span class="hot-badge">REPEATED</span></div>
+                <p><strong>Q:</strong> Trains arrive at a station at 15 minute intervals starting at 4 AM. A passenger arrives at a time uniformly distributed between 9:00 AM and 9:30 AM. Find probability of waiting (a) less than 6 minutes (b) more than 10 minutes.</p>
+                <details><summary>Solution</summary>
+                <p>Trains arrive at 9:00, 9:15, 9:30. Passenger arrives $U(0,30)$ minutes after 9:00.</p>
+                <p>Wait time depends on arrival within each 15-min interval.</p>
+                <p>Within any 15-min interval, wait time is $U(0,15)$.</p>
+                <p>(a) $P(\text{wait} < 6) = 6/15 = 2/5$</p>
+                <p>(b) $P(\text{wait} > 10) = 5/15 = 1/3$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/MTE_soln_page4.png" alt="MTE Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">MTE 2024 Q-C1a</span><span class="hot-badge">PYQ - Normal Distribution</span></div>
+                <p><strong>Q:</strong> The amount of rain (X mm) per day follows $N(2.6, 34.5)$. Find probability that rainfall is (i) 6 mm or more (ii) less than 1 mm (iii) 1.5 mm to 4.6 mm (iv) In a randomly selected week, at most 2 days rainfall between 1.5 to 4.6 mm?</p>
+                <details><summary>Solution</summary>
+                <p>$\mu = 2.6$, $\sigma^2 = 34.5$, $\sigma = 5.874$</p>
+                <p>$Z = (X - 2.6)/5.874$</p>
+                <p>(i) $P(X \geq 6) = P(Z \geq 0.58) = 0.5 - 0.219 = 0.281$</p>
+                <p>(ii) $P(X < 1) = P(Z < -0.27) = 0.5 - 0.1064 = 0.3936$</p>
+                <p>(iii) $P(1.5 < X < 4.6) = P(-0.19 < Z < 0.34) = 0.0753 + 0.1331 = 0.2084$</p>
+                <p>(iv) Using Binomial with p = 0.2084, n = 7, find $P(X \leq 2)$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/MTE_soln_page5.png" alt="MTE Solution" loading="lazy">
+                    <img src="images/MTE_soln_page6.png" alt="MTE Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">MTE 2024 Q-C1b</span><span class="hot-badge">PYQ - Binomial</span></div>
+                <p><strong>Q:</strong> A random variable X following binomial distribution with mean 5/3 and $P(X=1) = P(X=2)$. Find variance, $P(X \geq 1)$, and $P(X \leq 1)$.</p>
+                <details><summary>Solution</summary>
+                <p>Mean = $np = 5/3$</p>
+                <p>$P(X=1) = P(X=2)$: $\binom{n}{1}p^1q^{n-1} = \binom{n}{2}p^2q^{n-2}$</p>
+                <p>Simplify: $q = \frac{(n-1)p}{2}$. With $np = 5/3$, solve for n and p.</p>
+                <p>$p = 1/3$, $n = 5$, $q = 2/3$</p>
+                <p>Variance = $npq = 5(1/3)(2/3) = 10/9$</p>
+                </details>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 2 Q2</span></div>
+                <p><strong>Q:</strong> Out of 800 families with 4 children each, how many families would be expected to have (i) 2 boys and 2 girls (ii) at least one boy (iii) no girl (iv) at most two girls?</p>
+                <details><summary>Solution</summary>
+                <p>$n=4$, $p=1/2$, $q=1/2$, Total families = 800</p>
+                <p>(i) $P(X=2) = \binom{4}{2}(1/2)^4 = 6/16 = 3/8$. Families = $800 \times 3/8 = 300$</p>
+                <p>(ii) $P(X \geq 1) = 1 - P(X=0) = 1 - (1/2)^4 = 15/16$. Families = 750</p>
+                <p>(iii) $P(\text{no girl}) = P(X=4) = (1/2)^4 = 1/16$. Families = 50</p>
+                <p>(iv) $P(\text{at most 2 girls}) = P(Y \leq 2)$ = Families = 550</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign2_page1.png" alt="Solution" loading="lazy">
+                    <img src="images/Sourav_Assign2_page2.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 2 Q4</span></div>
+                <p><strong>Q:</strong> The probability that a bomb will strike target is 1/5. If six bombs are dropped, find probability that at least two strike the target and exactly two strike. (Ans: 0.34464, 0.24576)</p>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign2_page3.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 2 Q5</span></div>
+                <p><strong>Q:</strong> In a book of 520 pages, 390 typographical errors occur. Assuming Poisson law, find probability that a random sample of 5 pages will contain no error. (Ans: $e^{-3.75}$)</p>
+                <details><summary>Solution</summary>
+                <p>Average errors per page = 390/520 = 0.75</p>
+                <p>For 5 pages: $\lambda = 5 \times 0.75 = 3.75$</p>
+                <p>$P(X=0) = e^{-3.75}$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign2_page4.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 2 Q8</span></div>
+                <p><strong>Q:</strong> In a certain exam 2000 students appeared. Average marks = 50%, SD = 5%. How many students expected to obtain more than 60 marks (normally distributed)?</p>
+                <details><summary>Solution</summary>
+                <p>$Z = (60-50)/5 = 2$, $P(Z>2) = 0.5 - 0.4772 = 0.0228$</p>
+                <p>Students = $2000 \times 0.0228 \approx 46$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign2_page7.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 2 Q10 (CLT)</span></div>
+                <p><strong>Q:</strong> A random sample of size 100 is taken from an infinite population having mean 76 and variance 256. What is the probability that sample mean will be between 75 and 78? (Ans: 0.6311)</p>
+                <details><summary>Solution</summary>
+                <p>By CLT: $\bar{X} \sim N(76, 256/100) = N(76, 2.56)$, $\sigma_{\bar{X}} = 1.6$</p>
+                <p>$P(75 < \bar{X} < 78) = P(\frac{75-76}{1.6} < Z < \frac{78-76}{1.6})$</p>
+                <p>$= P(-0.625 < Z < 1.25) = 0.2357 + 0.3944 = 0.6311$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign2_page9.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 2 Q16 (CLT)</span></div>
+                <p><strong>Q:</strong> A random sample of size 100 is taken from a population whose mean is 60 and variance is 400. Using CLT, with what probability can we assert that the mean of the sample will not differ from $\mu$ = 60 by more than 4?</p>
+                <details><summary>Solution</summary>
+                <p>$\sigma_{\bar{X}} = \sqrt{400/100} = 2$</p>
+                <p>$P(|\bar{X}-60| \leq 4) = P(-2 \leq Z \leq 2) = 2(0.4772) = 0.9544$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign2_page14.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 2 Q14</span></div>
+                <p><strong>Q:</strong> The time (in hours) required to repair a machine is exponentially distributed with parameter $\lambda = 1/3$. What is the probability that the repair time exceeds 3 hours? (Ans: 0.3679)</p>
+                <details><summary>Solution</summary>
+                <p>$P(X > 3) = e^{-3 \times (1/3)} = e^{-1} = 0.3679$</p>
+                </details>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 2 Q15</span></div>
+                <p><strong>Q:</strong> Life length X of electric component follows exponential with $\lambda = 1/2$. Find probability component survives at least 10 months given it survived more than 9 months. (Ans: 0.6065)</p>
+                <details><summary>Solution</summary>
+                <p>By memoryless property: $P(X \geq 10 | X > 9) = P(X \geq 1) = e^{-1/2} = 0.6065$</p>
+                </details>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 2 Q17</span></div>
+                <p><strong>Q:</strong> In a normal distribution, 31% of items are under 45 and 8% are over 64. What is the mean and standard deviation? (Ans: mean=50, SD=10)</p>
+                <details><summary>Solution</summary>
+                <p>$P(X < 45) = 0.31$: $Z_1 = (45-\mu)/\sigma = -0.50$ (approx)</p>
+                <p>$P(X > 64) = 0.08$: $Z_2 = (64-\mu)/\sigma = 1.41$</p>
+                <p>Solving: $45 - \mu = -0.50\sigma$ and $64 - \mu = 1.41\sigma$</p>
+                <p>Subtracting: $19 = 1.91\sigma$, $\sigma = 10$, $\mu = 50$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign2_page15.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TOPIC 3: ESTIMATION THEORY (21.25%) -->
+        <section id="topic3" class="topic-section">
+            <div class="priority-badge critical">PRIORITY 3 - 17 Marks (21.25%)</div>
+            <h1>Estimation Theory (MLE, Method of Moments, Sufficient Statistics)</h1>
+            <p class="topic-description">Covers Exponential distribution, properties of good estimators, Maximum Likelihood Estimation, Method of Moments, and Sufficient Statistics.</p>
+
+            <div class="material-ref">
+                <h3>Material References</h3>
+                <ul>
+                    <li>MoM.pdf - Method of Moments estimation (3 pages of solved examples)</li>
+                    <li>PPTs(L1-L8)_Basic Probability, RV, CI.pdf - Theory of estimation section</li>
+                    <li>Sourav Notes ETE.pdf - Comprehensive ETE preparation notes</li>
+                </ul>
+            </div>
+
+            <h2>Key Concepts & Theory</h2>
+
+            <div class="concept-box">
+                <h3>Exponential Distribution</h3>
+                <div class="formula">
+                    $$f(x) = \lambda e^{-\lambda x}, \quad x \geq 0$$
+                </div>
+                <p><strong>Mean:</strong> $1/\lambda$ | <strong>Variance:</strong> $1/\lambda^2$ | <strong>CDF:</strong> $F(x) = 1 - e^{-\lambda x}$</p>
+                <p><strong>Memoryless Property:</strong> $P(X > s+t | X > s) = P(X > t)$ - unique to exponential among continuous distributions.</p>
+                <p><strong>Survival Function:</strong> $P(X > x) = e^{-\lambda x}$</p>
+            </div>
+
+            <div class="concept-box">
+                <h3>Properties of a Good Estimator</h3>
+                <dl>
+                    <dt>Unbiasedness</dt>
+                    <dd>$E(\hat{\theta}) = \theta$. The expected value of the estimator equals the true parameter.</dd>
+                    <dt>Consistency</dt>
+                    <dd>$\hat{\theta}_n \xrightarrow{P} \theta$ as $n \to \infty$. Estimator converges to true value as sample size increases.</dd>
+                    <dt>Efficiency</dt>
+                    <dd>Among all unbiased estimators, the one with minimum variance is most efficient.</dd>
+                    <dt>Sufficiency</dt>
+                    <dd>A statistic $T(X)$ is sufficient for $\theta$ if it captures all information about $\theta$ in the data.</dd>
+                </dl>
+            </div>
+
+            <div class="concept-box">
+                <h3>Sufficient Statistics (Fisher-Neyman Factorization)</h3>
+                <p><strong>Theorem:</strong> A statistic $T(X)$ is sufficient for $\theta$ if and only if:</p>
+                <div class="formula">
+                    $$f(x|\theta) = g(T(x), \theta) \cdot h(x)$$
+                </div>
+                <p>Where $g$ depends on data only through $T(x)$, and $h$ is independent of $\theta$.</p>
+                <p><strong>Common Sufficient Statistics:</strong></p>
+                <ul>
+                    <li>Normal($\mu$, $\sigma^2$ known): $\sum x_i$ (or $\bar{x}$) is sufficient for $\mu$</li>
+                    <li>Poisson($\lambda$): $\sum x_i$ is sufficient for $\lambda$</li>
+                    <li>Exponential($\lambda$): $\sum x_i$ is sufficient for $\lambda$</li>
+                    <li>Binomial(n, p): $\sum x_i$ is sufficient for p</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Maximum Likelihood Estimation (MLE)</h3>
+                <p><strong>Method:</strong></p>
+                <ol>
+                    <li>Write the likelihood function: $L(\theta) = \prod_{i=1}^n f(x_i | \theta)$</li>
+                    <li>Take log-likelihood: $\ln L(\theta) = \sum_{i=1}^n \ln f(x_i | \theta)$</li>
+                    <li>Differentiate and set to zero: $\frac{d}{d\theta} \ln L = 0$</li>
+                    <li>Solve for $\hat{\theta}_{MLE}$</li>
+                    <li>Verify it's a maximum (second derivative < 0)</li>
+                </ol>
+                <p><strong>Common MLEs:</strong></p>
+                <ul>
+                    <li>Normal($\mu$, $\sigma^2$): $\hat{\mu} = \bar{x}$, $\hat{\sigma}^2 = \frac{1}{n}\sum(x_i-\bar{x})^2$</li>
+                    <li>Exponential($\lambda$): $\hat{\lambda} = 1/\bar{x}$</li>
+                    <li>Poisson($\lambda$): $\hat{\lambda} = \bar{x}$</li>
+                    <li>Bernoulli(p): $\hat{p} = \bar{x}$</li>
+                    <li>Uniform(0, $\theta$): $\hat{\theta} = \max(x_1, ..., x_n)$</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Method of Moments (MoM)</h3>
+                <p><strong>Method:</strong></p>
+                <ol>
+                    <li>Express population moments in terms of parameters: $E(X) = g_1(\theta)$, $E(X^2) = g_2(\theta)$, ...</li>
+                    <li>Equate population moments to sample moments: $\bar{x} = g_1(\hat{\theta})$, $\frac{1}{n}\sum x_i^2 = g_2(\hat{\theta})$</li>
+                    <li>Solve for parameters</li>
+                </ol>
+                <p><strong>Sample Moments:</strong></p>
+                <ul>
+                    <li>First moment: $m_1 = \bar{x} = \frac{1}{n}\sum x_i$</li>
+                    <li>Second moment: $m_2 = \frac{1}{n}\sum x_i^2$</li>
+                    <li>Variance: $m_2 - m_1^2$</li>
+                </ul>
+                <p><strong>Common MoM Estimators:</strong></p>
+                <ul>
+                    <li>Normal: $\hat{\mu} = \bar{x}$, $\hat{\sigma}^2 = m_2 - \bar{x}^2$</li>
+                    <li>Exponential: $\hat{\lambda} = 1/\bar{x}$</li>
+                    <li>Uniform[a,b]: $\hat{a} = \bar{x} - \sqrt{3s^2}$, $\hat{b} = \bar{x} + \sqrt{3s^2}$</li>
+                </ul>
+            </div>
+
+            <h2>Material Reference Images (MoM)</h2>
+            <div class="material-gallery">
+                <img src="images/MoM_page1.png" alt="Method of Moments" loading="lazy">
+                <img src="images/MoM_page2.png" alt="Method of Moments" loading="lazy">
+                <img src="images/MoM_page3.png" alt="Method of Moments" loading="lazy">
+            </div>
+
+            <h2>Questions from Assignments & PYQs</h2>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 3 (Estimation)</span></div>
+                <p><strong>Note:</strong> Assignment 3 covers MLE, MoM, and Sufficient Statistics extensively. The full solutions are shown below from the solution PDFs.</p>
+                <div class="solution-images">
+                    <img src="images/Assignment_3_solutions_page1.png" alt="Assignment 3 Solutions" loading="lazy">
+                    <img src="images/Assignment_3_solutions_page2.png" alt="Assignment 3 Solutions" loading="lazy">
+                    <img src="images/Assignment_3_solutions_page3.png" alt="Assignment 3 Solutions" loading="lazy">
+                    <img src="images/Assignment_3_solutions_page4.png" alt="Assignment 3 Solutions" loading="lazy">
+                    <img src="images/Assignment_3_solutions_page5.png" alt="Assignment 3 Solutions" loading="lazy">
+                    <img src="images/Assignment_3_solutions_page6.png" alt="Assignment 3 Solutions" loading="lazy">
+                    <img src="images/Assignment_3_solutions_page7.png" alt="Assignment 3 Solutions" loading="lazy">
+                    <img src="images/Assignment_3_solutions_page8.png" alt="Assignment 3 Solutions" loading="lazy">
+                    <img src="images/Assignment_3_solutions_page9.png" alt="Assignment 3 Solutions" loading="lazy">
+                    <img src="images/Assignment_3_solutions_page10.png" alt="Assignment 3 Solutions" loading="lazy">
+                    <img src="images/Assignment_3_solutions_page11.png" alt="Assignment 3 Solutions" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Sidharth Assignment 3 Solutions</span></div>
+                <div class="solution-images">
+                    <img src="images/Sidharth_Assign3_page1.png" alt="Sidharth Assign 3" loading="lazy">
+                    <img src="images/Sidharth_Assign3_page2.png" alt="Sidharth Assign 3" loading="lazy">
+                    <img src="images/Sidharth_Assign3_page3.png" alt="Sidharth Assign 3" loading="lazy">
+                    <img src="images/Sidharth_Assign3_page4.png" alt="Sidharth Assign 3" loading="lazy">
+                    <img src="images/Sidharth_Assign3_page5.png" alt="Sidharth Assign 3" loading="lazy">
+                    <img src="images/Sidharth_Assign3_page6.png" alt="Sidharth Assign 3" loading="lazy">
+                    <img src="images/Sidharth_Assign3_page7.png" alt="Sidharth Assign 3" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TOPIC 1: PROBABILITY & RANDOM VARIABLES (17.5%) -->
+        <section id="topic1" class="topic-section">
+            <div class="priority-badge high">PRIORITY 4 - 14 Marks (17.5%)</div>
+            <h1>Probability Theory & Random Variables</h1>
+            <p class="topic-description">Covers random variables, CDF, PMF/PDF, expectation, independent RVs, and Chebyshev's inequality. Foundation for all other topics.</p>
+
+            <div class="material-ref">
+                <h3>Material References</h3>
+                <ul>
+                    <li>PPTs(L1-L8)_Basic Probability, RV, CI.pdf - Main lecture slides</li>
+                    <li>probability_&_random_variable 2024.pdf - Additional theory</li>
+                    <li>SP midsem notes.pdf - Mid-sem notes with solved problems</li>
+                    <li>Statistics and Probability Notes.pdf - Comprehensive notes</li>
+                </ul>
+            </div>
+
+            <h2>Key Concepts & Theory</h2>
+
+            <div class="concept-box">
+                <h3>Random Variable</h3>
+                <p>A function that assigns a real number to each outcome in a sample space. Can be <strong>discrete</strong> (countable values) or <strong>continuous</strong> (uncountable/interval values).</p>
+                <p><strong>Example:</strong> Height of persons = continuous RV. Number on a die = discrete RV.</p>
+            </div>
+
+            <div class="concept-box">
+                <h3>Probability Mass Function (PMF) - Discrete</h3>
+                <p>$P(X = x_i) = p(x_i)$ where:</p>
+                <ul>
+                    <li>$p(x_i) \geq 0$ for all $x_i$</li>
+                    <li>$\sum_i p(x_i) = 1$</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Probability Density Function (PDF) - Continuous</h3>
+                <p>$f(x)$ where:</p>
+                <ul>
+                    <li>$f(x) \geq 0$ for all $x$</li>
+                    <li>$\int_{-\infty}^{\infty} f(x) dx = 1$</li>
+                    <li>$P(a \leq X \leq b) = \int_a^b f(x) dx$</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Cumulative Distribution Function (CDF)</h3>
+                <div class="formula">
+                    $$F(x) = P(X \leq x) = \begin{cases} \sum_{x_i \leq x} p(x_i) & \text{(discrete)} \\ \int_{-\infty}^x f(t) dt & \text{(continuous)} \end{cases}$$
+                </div>
+                <p><strong>Properties:</strong></p>
+                <ul>
+                    <li>$0 \leq F(x) \leq 1$</li>
+                    <li>$F(-\infty) = 0$, $F(\infty) = 1$</li>
+                    <li>Non-decreasing function</li>
+                    <li>$f(x) = F'(x)$ (for continuous)</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Expectation & Variance</h3>
+                <div class="formula">
+                    $$E(X) = \begin{cases} \sum x_i p(x_i) & \text{(discrete)} \\ \int x f(x) dx & \text{(continuous)} \end{cases}$$
+                </div>
+                <div class="formula">
+                    $$Var(X) = E(X^2) - [E(X)]^2$$
+                </div>
+                <p><strong>Properties:</strong></p>
+                <ul>
+                    <li>$E(aX + b) = aE(X) + b$</li>
+                    <li>$Var(aX + b) = a^2 Var(X)$</li>
+                    <li>If X, Y independent: $E(XY) = E(X) \cdot E(Y)$</li>
+                    <li>$Var(X \pm Y) = Var(X) + Var(Y)$ (if independent)</li>
+                </ul>
+            </div>
+
+            <div class="concept-box">
+                <h3>Chebyshev's Inequality</h3>
+                <p><strong>Statement:</strong> For any random variable X with mean $\mu$ and variance $\sigma^2$:</p>
+                <div class="formula">
+                    $$P(|X - \mu| \geq k\sigma) \leq \frac{1}{k^2}$$
+                </div>
+                <p><strong>Equivalent forms:</strong></p>
+                <ul>
+                    <li>$P(|X - \mu| < k\sigma) \geq 1 - \frac{1}{k^2}$</li>
+                    <li>$P(|X - \mu| \geq k) \leq \frac{\sigma^2}{k^2}$</li>
+                </ul>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Works for ANY distribution (no normality required)</li>
+                    <li>Gives a conservative (loose) bound</li>
+                    <li>Often asked: compute bound AND actual probability, then compare</li>
+                </ul>
+            </div>
+
+            <h2>Questions from Assignments & PYQs</h2>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">MTE 2024 Q-A2</span><span class="hot-badge">PYQ - CDF from PDF</span></div>
+                <p><strong>Q:</strong> Let pdf $f(x) = \begin{cases} x, & 0 < x \leq 1 \\ 2-x, & 1 \leq x \leq 2 \\ 0, & \text{otherwise} \end{cases}$. Find CDF in interval $1 \leq x \leq 2$.</p>
+                <details><summary>Solution</summary>
+                <p>$F(x) = \int_0^1 t \, dt + \int_1^x (2-t) \, dt = \frac{1}{2} + [2t - t^2/2]_1^x$</p>
+                <p>$= \frac{1}{2} + 2x - x^2/2 - 2 + 1/2 = 2x - x^2/2 - 1$</p>
+                <p><strong>Answer: (d) $2x - x^2/2 - 1$</strong></p>
+                </details>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">MTE 2024 Q-A3</span><span class="hot-badge">PYQ - Chebyshev</span></div>
+                <p><strong>Q:</strong> Which is NOT Chebyshev's inequality?</p>
+                <p>a) $P\{|X-\mu| \geq k\sigma\} \leq 1/k^2$ &nbsp; b) $P\{|X-\mu| < k\sigma\} \geq 1-(1/k^2)$</p>
+                <p>c) $P\{|X-\mu| \geq k\} \leq k^2/\sigma^2$ &nbsp; d) $P\{|X-\mu| < k\sigma\} \geq \sigma^2/k^2$</p>
+                <details><summary>Solution</summary>
+                <p>(a) Correct Chebyshev form ✓</p>
+                <p>(b) Complement of (a), correct ✓</p>
+                <p>(c) WRONG - should be $\leq \sigma^2/k^2$ not $k^2/\sigma^2$</p>
+                <p>(d) WRONG - should be $\geq 1 - 1/k^2$ not $\sigma^2/k^2$</p>
+                <p><strong>Answer: (c) and (d) are NOT Chebyshev's inequality</strong></p>
+                </details>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">MTE 2024 Q-B3 + Assignment 1 Q5</span><span class="hot-badge">REPEATED</span></div>
+                <p><strong>Q:</strong> Let X be uniformly distributed $U(-1,1)$. Compute the upper bound on $P[|X-E(X)| \geq 2\sqrt{Var(X)}]$ using Chebyshev's inequality. Also obtain actual probability.</p>
+                <details><summary>Solution</summary>
+                <p>$E(X) = 0$, $Var(X) = (1-(-1))^2/12 = 1/3$, $\sigma = 1/\sqrt{3}$</p>
+                <p>$2\sqrt{Var(X)} = 2/\sqrt{3}$. Here $k\sigma = 2\sigma$, so $k = 2$.</p>
+                <p>Chebyshev bound: $P \leq 1/k^2 = 1/4$</p>
+                <p>Actual: $P(|X| \geq 2/\sqrt{3}) = P(X < -2/\sqrt{3}) + P(X > 2/\sqrt{3})$</p>
+                <p>Since $2/\sqrt{3} \approx 1.155 > 1$ (range of U(-1,1)), actual probability = 0!</p>
+                <p>Chebyshev gives 1/4, actual is 0. Shows Chebyshev is conservative.</p>
+                </details>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 1 Q6</span><span class="hot-badge">IMPORTANT</span></div>
+                <p><strong>Q:</strong> A random variable X has probability function:</p>
+                <table>
+                    <tr><th>x</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+                    <tr><th>P(x)</th><td>0</td><td>k</td><td>2k</td><td>2k</td><td>3k</td><td>k²</td><td>7k²+k</td></tr>
+                </table>
+                <p>(i) Find k (ii) Evaluate P(X<6), P(X≥6), P(0<X<5) (iii) Distribution function (iv) Min value of a if P(X≤a)>1/2</p>
+                <details><summary>Solution</summary>
+                <p>$\sum P(x) = 1$: $0 + k + 2k + 2k + 3k + k^2 + 7k^2 + k = 1$</p>
+                <p>$9k + 8k^2 = 1$ → $8k^2 + 9k - 1 = 0$</p>
+                <p>$k = \frac{-9 + \sqrt{81+32}}{16} = \frac{-9+\sqrt{113}}{16} \approx 0.1$ (taking positive root)</p>
+                <p>Actually: $k = 1/10$ works: $9(0.1) + 8(0.01) = 0.9 + 0.08 = 0.98$... Let's verify with k=0.1</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign1_page1.png" alt="Solution" loading="lazy">
+                    <img src="images/Sourav_Assign1_page2.png" alt="Solution" loading="lazy">
+                    <img src="images/Sourav_Assign1_page3.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 1 Q7</span></div>
+                <p><strong>Q:</strong> A random number X is distributed between 0 and 1 with pdf $f(x) = kx^2(1-x^3)$. Find k, mean and variance.</p>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign1_page4.png" alt="Solution" loading="lazy">
+                    <img src="images/Sourav_Assign1_page5.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 1 Q3</span></div>
+                <p><strong>Q:</strong> A diameter of electric cable X has pdf: $f(x) = 6x(1-x)$, $0 \leq x \leq 1$. Check it's a pdf, find b such that P(X<b)=P(X>b), obtain CDF, compute $P(X \leq 1/2 | 1/3 \leq X \leq 2/3)$.</p>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign1_page6.png" alt="Solution" loading="lazy">
+                    <img src="images/Sourav_Assign1_page7.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 1 Q10</span></div>
+                <p><strong>Q:</strong> A symmetric die is thrown 600 times. Find the lower bound for the probability of getting 80 to 120 sixes.</p>
+                <details><summary>Solution</summary>
+                <p>$E(X) = np = 600(1/6) = 100$, $Var(X) = npq = 600(1/6)(5/6) = 500/6$</p>
+                <p>$P(80 \leq X \leq 120) = P(|X - 100| \leq 20)$</p>
+                <p>By Chebyshev: $k\sigma = 20$, $\sigma = \sqrt{500/6}$, $k = 20/\sqrt{500/6} = 20\sqrt{6}/\sqrt{500}$</p>
+                <p>$k^2 = 400 \times 6/500 = 4.8$</p>
+                <p>$P(|X-100| \leq 20) \geq 1 - 1/4.8 = 1 - 5/24 = 19/24$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign1_page8.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 1 Q11</span></div>
+                <p><strong>Q:</strong> The distribution function of continuous RV X:</p>
+                <p>$F(x) = \begin{cases} 0, & x < 0 \\ x/2, & 0 \leq x < 1 \\ 1/2, & 1 \leq x < 2 \\ x/4, & 2 \leq x < 4 \\ 1, & x \geq 4 \end{cases}$</p>
+                <p>Find the PDF of X.</p>
+                <details><summary>Solution</summary>
+                <p>$f(x) = F'(x)$:</p>
+                <p>$f(x) = \begin{cases} 1/2, & 0 \leq x < 1 \\ 0, & 1 \leq x < 2 \\ 1/4, & 2 \leq x < 4 \\ 0, & \text{otherwise} \end{cases}$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign1_page9.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 1 Q12</span></div>
+                <p><strong>Q:</strong> Life of radio tube: $f(x) = 100/x^2$ for $x \geq 100$, 0 elsewhere. (i) Prob all 3 tubes replaced before 150 hrs (ii) None replaced (iii) Prob tube lasts < 200 hrs given functioning after 150 hrs (iv) Max tubes for 0.5 prob all functioning after 150 hrs.</p>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign1_page10.png" alt="Solution" loading="lazy">
+                    <img src="images/Sourav_Assign1_page11.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 1 Q13</span></div>
+                <p><strong>Q:</strong> For geometric distribution $p(x) = 2^{-x}$, $x = 1, 2, 3, ...$, prove Chebyshev gives $P\{|X-2| \leq 2\} > 1/2$, while actual probability is 15/16.</p>
+                <div class="solution-images">
+                    <img src="images/Sourav_Assign1_page12.png" alt="Solution" loading="lazy">
+                    <img src="images/Sourav_Assign1_page13.png" alt="Solution" loading="lazy">
+                </div>
+            </div>
+
+            <h3>Full Assignment 1 Solutions (Sidharth)</h3>
+            <div class="material-gallery">
+                <img src="images/Sidharth_Assign1_page1.png" alt="Sidharth Assign 1" loading="lazy">
+                <img src="images/Sidharth_Assign1_page2.png" alt="Sidharth Assign 1" loading="lazy">
+                <img src="images/Sidharth_Assign1_page3.png" alt="Sidharth Assign 1" loading="lazy">
+                <img src="images/Sidharth_Assign1_page4.png" alt="Sidharth Assign 1" loading="lazy">
+                <img src="images/Sidharth_Assign1_page5.png" alt="Sidharth Assign 1" loading="lazy">
+                <img src="images/Sidharth_Assign1_page6.png" alt="Sidharth Assign 1" loading="lazy">
+                <img src="images/Sidharth_Assign1_page7.png" alt="Sidharth Assign 1" loading="lazy">
+                <img src="images/Sidharth_Assign1_page8.png" alt="Sidharth Assign 1" loading="lazy">
+                <img src="images/Sidharth_Assign1_page9.png" alt="Sidharth Assign 1" loading="lazy">
+            </div>
+        </section>
+
+
+        <!-- TOPIC 4: BAYESIAN ESTIMATION + CI + HYPOTHESIS INTRO (15%) -->
+        <section id="topic4" class="topic-section">
+            <div class="priority-badge high">PRIORITY 5 - 12 Marks (15%)</div>
+            <h1>Bayesian Estimation, Confidence Intervals & Hypothesis Introduction</h1>
+            <p class="topic-description">Covers Bayesian estimation, confidence intervals for means (large and small samples), and introduction to hypothesis testing concepts (definitions, Type I/II errors).</p>
+
+            <div class="material-ref">
+                <h3>Material References</h3>
+                <ul>
+                    <li>bayesian estimation.pdf - Complete Bayesian estimation theory (11 pages)</li>
+                    <li>PPTs(L1-L8)_Basic Probability, RV, CI.pdf - Confidence Intervals section</li>
+                    <li>Testing of Hypothesis 1.pdf - Introduction to hypothesis testing</li>
+                </ul>
+            </div>
+
+            <h2>Key Concepts & Theory</h2>
+
+            <div class="concept-box">
+                <h3>Bayesian Estimation</h3>
+                <p><strong>Key Idea:</strong> Treats parameters as random variables with prior distributions. Combines prior knowledge with data to get posterior distribution.</p>
+                <div class="formula">
+                    $$\text{Posterior} \propto \text{Likelihood} \times \text{Prior}$$
+                    $$f(\theta|x) = \frac{f(x|\theta) \cdot \pi(\theta)}{\int f(x|\theta) \cdot \pi(\theta) \, d\theta}$$
+                </div>
+                <p><strong>Bayes Estimator:</strong> The mean of the posterior distribution (under squared error loss).</p>
+                <p><strong>Steps:</strong></p>
+                <ol>
+                    <li>Choose a prior distribution $\pi(\theta)$ for the parameter</li>
+                    <li>Write the likelihood $f(x|\theta)$ from the data</li>
+                    <li>Compute posterior $f(\theta|x) \propto f(x|\theta) \cdot \pi(\theta)$</li>
+                    <li>Find the Bayes estimate = $E(\theta|x)$ = mean of posterior</li>
+                </ol>
+            </div>
+
+            <h3>Bayesian Estimation Reference Material</h3>
+            <div class="material-gallery">
+                <img src="images/Bayesian_Est_page1.png" alt="Bayesian Estimation" loading="lazy">
+                <img src="images/Bayesian_Est_page2.png" alt="Bayesian Estimation" loading="lazy">
+                <img src="images/Bayesian_Est_page3.png" alt="Bayesian Estimation" loading="lazy">
+                <img src="images/Bayesian_Est_page4.png" alt="Bayesian Estimation" loading="lazy">
+                <img src="images/Bayesian_Est_page5.png" alt="Bayesian Estimation" loading="lazy">
+                <img src="images/Bayesian_Est_page6.png" alt="Bayesian Estimation" loading="lazy">
+                <img src="images/Bayesian_Est_page7.png" alt="Bayesian Estimation" loading="lazy">
+                <img src="images/Bayesian_Est_page8.png" alt="Bayesian Estimation" loading="lazy">
+                <img src="images/Bayesian_Est_page9.png" alt="Bayesian Estimation" loading="lazy">
+                <img src="images/Bayesian_Est_page10.png" alt="Bayesian Estimation" loading="lazy">
+                <img src="images/Bayesian_Est_page11.png" alt="Bayesian Estimation" loading="lazy">
+            </div>
+
+            <div class="concept-box">
+                <h3>Confidence Intervals for Means</h3>
+                
+                <h4>Large Sample (n ≥ 30) - Z-interval</h4>
+                <div class="formula">
+                    $$\bar{x} \pm Z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
+                </div>
+                <p>If $\sigma$ unknown, use $s$ (sample SD). Common Z-values: $Z_{0.025} = 1.96$ (95%), $Z_{0.005} = 2.576$ (99%)</p>
+
+                <h4>Small Sample (n < 30) - t-interval</h4>
+                <div class="formula">
+                    $$\bar{x} \pm t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}$$
+                </div>
+                <p>Use t-distribution with $df = n-1$.</p>
+
+                <h4>Difference of Two Means</h4>
+                <div class="formula">
+                    $$(\bar{x}_1 - \bar{x}_2) \pm t_{\alpha/2, n_1+n_2-2} \cdot s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}$$
+                </div>
+            </div>
+
+            <div class="concept-box">
+                <h3>Type I and Type II Errors - Important Problems</h3>
+                <p>These problems from Assignment 4 are CRITICAL for ETE Section A & B:</p>
+            </div>
+
+            <h2>Questions from Assignment 4 (Type I/II Errors)</h2>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 4 Q13</span><span class="hot-badge">IMPORTANT</span></div>
+                <p><strong>Q:</strong> Given $f(x,\theta) = 1/\theta$, $0 \leq x \leq \theta$ and 0 otherwise. Testing $H_0: \theta=1$ against $H_1: \theta=2$ using single observed value. Find Type I and Type II errors for critical regions (i) $0.5 \leq x$ (ii) $1 \leq x \leq 1.5$.</p>
+                <details><summary>Solution</summary>
+                <p>(i) CR: $x \geq 0.5$</p>
+                <p>$\alpha = P(\text{reject } H_0 | H_0 \text{ true}) = P(X \geq 0.5 | \theta=1) = \int_{0.5}^1 1 \, dx = 0.5$</p>
+                <p>$\beta = P(\text{accept } H_0 | H_1 \text{ true}) = P(X < 0.5 | \theta=2) = \int_0^{0.5} (1/2) \, dx = 0.25$</p>
+                <p>(ii) CR: $1 \leq x \leq 1.5$</p>
+                <p>$\alpha = P(1 \leq X \leq 1.5 | \theta=1) = 0$ (X can't exceed 1 when $\theta=1$)</p>
+                <p>$\beta = P(X \notin [1,1.5] | \theta=2) = P(X<1 | \theta=2) + P(X>1.5 | \theta=2) = 0.5 + 0.25 = 0.75$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/ass4-_CamScan_20-11-2024_01-09-051_page1.png" alt="Assignment 4 Solution" loading="lazy">
+                    <img src="images/ass4-_CamScan_20-11-2024_01-09-051_page2.png" alt="Assignment 4 Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 4 Q14</span><span class="hot-badge">IMPORTANT</span></div>
+                <p><strong>Q:</strong> Let p be prob of head. To test $H_0: p=1/2$ against $H_1: p=3/4$, coin tossed 5 times, $H_0$ rejected if more than 3 heads. Find probability of Type I error. (Ans: $\alpha = 3/16$, $\beta = 47/128$)</p>
+                <details><summary>Solution</summary>
+                <p>$\alpha = P(X > 3 | p=1/2) = P(X=4) + P(X=5)$</p>
+                <p>$= \binom{5}{4}(1/2)^5 + \binom{5}{5}(1/2)^5 = 5/32 + 1/32 = 6/32 = 3/16$</p>
+                <p>$\beta = P(X \leq 3 | p=3/4) = 1 - P(X > 3 | p=3/4)$</p>
+                <p>$= 1 - [\binom{5}{4}(3/4)^4(1/4) + (3/4)^5] = 1 - [5(81/256)(1/4) + 243/1024]$</p>
+                <p>$= 1 - [405/1024 + 243/1024] = 1 - 648/1024 = 376/1024... $</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/ass4-_CamScan_20-11-2024_01-09-051_page3.png" alt="Assignment 4 Solution" loading="lazy">
+                    <img src="images/ass4-_CamScan_20-11-2024_01-09-051_page4.png" alt="Assignment 4 Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 4 Q15</span></div>
+                <p><strong>Q:</strong> If $x \geq 1$ is critical region for testing $H_0: \theta=2$ vs $\theta=1$, based on single observation from $f(x,\theta) = \theta e^{-\theta x}$, $x \geq 0$. Find Type I and Type II errors.</p>
+                <details><summary>Solution</summary>
+                <p>$\alpha = P(X \geq 1 | \theta=2) = \int_1^\infty 2e^{-2x} dx = e^{-2}$</p>
+                <p>$\beta = P(X < 1 | \theta=1) = \int_0^1 e^{-x} dx = 1 - e^{-1} = (e-1)/e$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/ass4-_CamScan_20-11-2024_01-09-051_page5.png" alt="Assignment 4 Solution" loading="lazy">
+                </div>
+            </div>
+
+            <div class="question-box">
+                <div class="q-header"><span class="q-source">Assignment 4 Q16</span></div>
+                <p><strong>Q:</strong> X follows exponential $f(x,\theta) = (1/\theta)e^{-x/\theta}$, $x \geq 0$. $H_0: \theta=2$ rejected and $H_1: \theta=4$ accepted if observation $\geq 6$. Find critical region, acceptance region, Type I and Type II error.</p>
+                <details><summary>Solution</summary>
+                <p>Critical region: $x \geq 6$. Acceptance region: $x < 6$.</p>
+                <p>$\alpha = P(X \geq 6 | \theta=2) = e^{-6/2} = e^{-3} = 0.0498$</p>
+                <p>$\beta = P(X < 6 | \theta=4) = 1 - e^{-6/4} = 1 - e^{-1.5} = 1 - 0.2231 = 0.7769$</p>
+                </details>
+                <div class="solution-images">
+                    <img src="images/ass4-_CamScan_20-11-2024_01-09-051_page6.png" alt="Assignment 4 Solution" loading="lazy">
+                    <img src="images/ass4-_CamScan_20-11-2024_01-09-051_page7.png" alt="Assignment 4 Solution" loading="lazy">
+                </div>
+            </div>
+
+            <h3>Full Assignment 4 Solutions (Sidharth)</h3>
+            <div class="material-gallery">
+                <img src="images/Sidharth_Assign4_page1.png" alt="Sidharth Assign 4" loading="lazy">
+                <img src="images/Sidharth_Assign4_page2.png" alt="Sidharth Assign 4" loading="lazy">
+                <img src="images/Sidharth_Assign4_page3.png" alt="Sidharth Assign 4" loading="lazy">
+                <img src="images/Sidharth_Assign4_page4.png" alt="Sidharth Assign 4" loading="lazy">
+                <img src="images/Sidharth_Assign4_page5.png" alt="Sidharth Assign 4" loading="lazy">
+                <img src="images/Sidharth_Assign4_page6.png" alt="Sidharth Assign 4" loading="lazy">
+            </div>
+        </section>
+
+
+        <!-- SOLUTION GALLERY -->
+        <section id="solutions" class="topic-section">
+            <h1>Complete Solution Gallery</h1>
+            <p class="topic-description">All solved assignment and PYQ solutions organized by assignment number. Click to expand each section.</p>
+
+            <details class="gallery-section">
+                <summary><h3>MTE 2024 Solutions (6 pages)</h3></summary>
+                <div class="material-gallery">
+                    <img src="images/MTE_soln_page1.png" alt="MTE Solution Page 1" loading="lazy">
+                    <img src="images/MTE_soln_page2.png" alt="MTE Solution Page 2" loading="lazy">
+                    <img src="images/MTE_soln_page3.png" alt="MTE Solution Page 3" loading="lazy">
+                    <img src="images/MTE_soln_page4.png" alt="MTE Solution Page 4" loading="lazy">
+                    <img src="images/MTE_soln_page5.png" alt="MTE Solution Page 5" loading="lazy">
+                    <img src="images/MTE_soln_page6.png" alt="MTE Solution Page 6" loading="lazy">
+                </div>
+            </details>
+
+            <details class="gallery-section">
+                <summary><h3>Assignment 1 Solutions - Sourav (20 pages)</h3></summary>
+                <div class="material-gallery">
+                    <img src="images/Sourav_Assign1_page1.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page2.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page3.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page4.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page5.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page6.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page7.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page8.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page9.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page10.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page11.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page12.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page13.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page14.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page15.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page16.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page17.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page18.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page19.png" alt="Sourav Assign 1" loading="lazy">
+                    <img src="images/Sourav_Assign1_page20.png" alt="Sourav Assign 1" loading="lazy">
+                </div>
+            </details>
+
+            <details class="gallery-section">
+                <summary><h3>Assignment 2 Solutions - Sourav (21 pages)</h3></summary>
+                <div class="material-gallery">
+                    <img src="images/Sourav_Assign2_page1.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page2.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page3.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page4.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page5.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page6.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page7.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page8.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page9.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page10.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page11.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page12.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page13.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page14.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page15.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page16.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page17.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page18.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page19.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page20.png" alt="Sourav Assign 2" loading="lazy">
+                    <img src="images/Sourav_Assign2_page21.png" alt="Sourav Assign 2" loading="lazy">
+                </div>
+            </details>
+
+            <details class="gallery-section">
+                <summary><h3>Assignment 3 Solutions - Sourav (21 pages)</h3></summary>
+                <div class="material-gallery">
+                    <img src="images/Sourav_Assign3_page1.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page2.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page3.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page4.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page5.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page6.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page7.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page8.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page9.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page10.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page11.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page12.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page13.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page14.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page15.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page16.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page17.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page18.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page19.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page20.png" alt="Sourav Assign 3" loading="lazy">
+                    <img src="images/Sourav_Assign3_page21.png" alt="Sourav Assign 3" loading="lazy">
+                </div>
+            </details>
+
+            <details class="gallery-section">
+                <summary><h3>Assignment 4 Solutions - Sourav (12 pages)</h3></summary>
+                <div class="material-gallery">
+                    <img src="images/Sourav_Assign4_page1.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page2.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page3.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page4.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page5.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page6.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page7.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page8.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page9.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page10.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page11.png" alt="Sourav Assign 4" loading="lazy">
+                    <img src="images/Sourav_Assign4_page12.png" alt="Sourav Assign 4" loading="lazy">
+                </div>
+            </details>
+
+            <details class="gallery-section">
+                <summary><h3>Assignment 5 Solutions - Sourav (24 pages)</h3></summary>
+                <div class="material-gallery">
+                    <img src="images/Sourav_Assign5_page1.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page2.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page3.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page4.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page5.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page6.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page7.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page8.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page9.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page10.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page11.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page12.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page13.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page14.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page15.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page16.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page17.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page18.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page19.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page20.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page21.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page22.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page23.png" alt="Sourav Assign 5" loading="lazy">
+                    <img src="images/Sourav_Assign5_page24.png" alt="Sourav Assign 5" loading="lazy">
+                </div>
+            </details>
+
+            <details class="gallery-section">
+                <summary><h3>Assignment 2 Solutions - Sidharth (11 pages)</h3></summary>
+                <div class="material-gallery">
+                    <img src="images/Sidharth_Assign2_page1.png" alt="Sidharth Assign 2" loading="lazy">
+                    <img src="images/Sidharth_Assign2_page2.png" alt="Sidharth Assign 2" loading="lazy">
+                    <img src="images/Sidharth_Assign2_page3.png" alt="Sidharth Assign 2" loading="lazy">
+                    <img src="images/Sidharth_Assign2_page4.png" alt="Sidharth Assign 2" loading="lazy">
+                    <img src="images/Sidharth_Assign2_page5.png" alt="Sidharth Assign 2" loading="lazy">
+                    <img src="images/Sidharth_Assign2_page6.png" alt="Sidharth Assign 2" loading="lazy">
+                    <img src="images/Sidharth_Assign2_page7.png" alt="Sidharth Assign 2" loading="lazy">
+                    <img src="images/Sidharth_Assign2_page8.png" alt="Sidharth Assign 2" loading="lazy">
+                    <img src="images/Sidharth_Assign2_page9.png" alt="Sidharth Assign 2" loading="lazy">
+                    <img src="images/Sidharth_Assign2_page10.png" alt="Sidharth Assign 2" loading="lazy">
+                    <img src="images/Sidharth_Assign2_page11.png" alt="Sidharth Assign 2" loading="lazy">
+                </div>
+            </details>
+        </section>
+
+
+        <!-- STATISTICAL TABLES -->
+        <section id="tables" class="topic-section">
+            <h1>Statistical Tables</h1>
+            <p class="topic-description">T-table for reference during revision (note: calculator is allowed in exam).</p>
+            <div class="material-gallery">
+                <img src="images/T_Table.jpeg" alt="T-Distribution Table" loading="lazy" style="max-width: 100%;">
+            </div>
+        </section>
+
+        <!-- FORMULA SHEET -->
+        <section id="formulas" class="topic-section">
+            <h1>Complete Formula Sheet</h1>
+            <p class="topic-description">All formulas you need to memorize, organized by topic.</p>
+
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <h3>Distributions</h3>
+                    <table class="formula-table">
+                        <tr><th>Distribution</th><th>PMF/PDF</th><th>Mean</th><th>Variance</th></tr>
+                        <tr><td>Binomial(n,p)</td><td>$\binom{n}{x}p^xq^{n-x}$</td><td>np</td><td>npq</td></tr>
+                        <tr><td>Poisson($\lambda$)</td><td>$\frac{e^{-\lambda}\lambda^x}{x!}$</td><td>$\lambda$</td><td>$\lambda$</td></tr>
+                        <tr><td>Uniform(a,b)</td><td>$\frac{1}{b-a}$</td><td>$\frac{a+b}{2}$</td><td>$\frac{(b-a)^2}{12}$</td></tr>
+                        <tr><td>Normal($\mu,\sigma^2$)</td><td>$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$</td><td>$\mu$</td><td>$\sigma^2$</td></tr>
+                        <tr><td>Exponential($\lambda$)</td><td>$\lambda e^{-\lambda x}$</td><td>$1/\lambda$</td><td>$1/\lambda^2$</td></tr>
+                    </table>
+                </div>
+
+                <div class="formula-card">
+                    <h3>Hypothesis Tests</h3>
+                    <table class="formula-table">
+                        <tr><th>Test</th><th>Statistic</th><th>df</th></tr>
+                        <tr><td>Single mean t-test</td><td>$t = \frac{\bar{x}-\mu_0}{s/\sqrt{n}}$</td><td>n-1</td></tr>
+                        <tr><td>Two means (indep)</td><td>$t = \frac{\bar{x}_1-\bar{x}_2}{s_p\sqrt{1/n_1+1/n_2}}$</td><td>$n_1+n_2-2$</td></tr>
+                        <tr><td>Paired t-test</td><td>$t = \frac{\bar{d}}{s_d/\sqrt{n}}$</td><td>n-1</td></tr>
+                        <tr><td>F-test</td><td>$F = s_1^2/s_2^2$</td><td>$n_1-1, n_2-1$</td></tr>
+                        <tr><td>Chi-square</td><td>$\chi^2 = \sum\frac{(O-E)^2}{E}$</td><td>(r-1)(c-1)</td></tr>
+                        <tr><td>One-way ANOVA</td><td>$F = MSB/MSW$</td><td>k-1, N-k</td></tr>
+                    </table>
+                </div>
+
+                <div class="formula-card">
+                    <h3>Estimation</h3>
+                    <ul>
+                        <li><strong>MLE:</strong> $\frac{d}{d\theta}\ln L(\theta) = 0$</li>
+                        <li><strong>MoM:</strong> Equate $E(X^r) = m_r = \frac{1}{n}\sum x_i^r$</li>
+                        <li><strong>Sufficiency:</strong> $f(x|\theta) = g(T(x),\theta) \cdot h(x)$</li>
+                        <li><strong>Bayes:</strong> Posterior $\propto$ Likelihood $\times$ Prior</li>
+                    </ul>
+                </div>
+
+                <div class="formula-card">
+                    <h3>Confidence Intervals</h3>
+                    <ul>
+                        <li><strong>Large sample:</strong> $\bar{x} \pm Z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$</li>
+                        <li><strong>Small sample:</strong> $\bar{x} \pm t_{\alpha/2,n-1} \cdot \frac{s}{\sqrt{n}}$</li>
+                        <li><strong>Z-values:</strong> 90%: 1.645, 95%: 1.96, 99%: 2.576</li>
+                    </ul>
+                </div>
+
+                <div class="formula-card">
+                    <h3>Key Inequalities & Theorems</h3>
+                    <ul>
+                        <li><strong>Chebyshev:</strong> $P(|X-\mu| \geq k\sigma) \leq 1/k^2$</li>
+                        <li><strong>CLT:</strong> $\bar{X} \sim N(\mu, \sigma^2/n)$ for large n</li>
+                        <li><strong>Memoryless:</strong> $P(X>s+t|X>s) = P(X>t)$ (Exponential only)</li>
+                    </ul>
+                </div>
+
+                <div class="formula-card">
+                    <h3>Common MLEs</h3>
+                    <ul>
+                        <li>Normal($\mu$): $\hat{\mu} = \bar{x}$</li>
+                        <li>Normal($\sigma^2$): $\hat{\sigma}^2 = \frac{1}{n}\sum(x_i-\bar{x})^2$</li>
+                        <li>Exponential($\lambda$): $\hat{\lambda} = 1/\bar{x}$</li>
+                        <li>Poisson($\lambda$): $\hat{\lambda} = \bar{x}$</li>
+                        <li>Uniform(0,$\theta$): $\hat{\theta} = \max(x_i)$</li>
+                        <li>Bernoulli(p): $\hat{p} = \bar{x}$</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Intersection observer for active nav highlighting
+        const sections = document.querySelectorAll('.topic-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(s => observer.observe(s));
+
+        // Image modal
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'IMG' && e.target.closest('.solution-images, .material-gallery')) {
+                const modal = document.createElement('div');
+                modal.className = 'img-modal';
+                modal.innerHTML = `<img src="${e.target.src}" alt="${e.target.alt}"><span class="close-modal">&times;</span>`;
+                document.body.appendChild(modal);
+                modal.addEventListener('click', () => modal.remove());
+            }
+        });
+    </script>
+</body>
+</html>
