@@ -748,3 +748,137 @@ body, .exam-card, .question-box, .concept-box, .formula-card,
     #sidebar.open { transform: translateX(0); }
     #content { padding-top: 4rem; }
 }
+
+
+/* ============================================================
+   STATISTICAL TABLES
+   ============================================================ */
+.table-scroll { overflow-x: auto; margin: 0.75rem 0 1.5rem; border-radius: 8px; }
+.stat-table {
+    font-size: 0.78rem;
+    min-width: 520px;
+    border-collapse: collapse;
+}
+.stat-table th, .stat-table td {
+    padding: 0.28rem 0.45rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    white-space: nowrap;
+}
+.stat-table th { background: var(--primary); color: #fff; position: sticky; }
+.stat-table tr th:first-child { background: var(--primary-dark); color: #fff; }
+.stat-table tr:nth-child(even) td { background: rgba(37,99,235,0.05); }
+.stat-table tr:hover td { background: rgba(37,99,235,0.15); }
+
+.table-jump {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0;
+}
+.table-jump a {
+    background: var(--card-bg); border: 1px solid var(--primary);
+    color: var(--primary); padding: 0.35rem 0.85rem; border-radius: 20px;
+    text-decoration: none; font-size: 0.82rem; font-weight: 600;
+}
+.table-jump a:hover { background: var(--primary); color: #fff; }
+
+[data-theme="dark"] .stat-table tr:nth-child(even) td { background: rgba(96,165,250,0.08); }
+[data-theme="dark"] .stat-table tr:hover td { background: rgba(96,165,250,0.18); }
+
+/* ============================================================
+   MOST-REPEATED QUESTIONS RANKING
+   ============================================================ */
+.rank-list { counter-reset: rank; list-style: none; padding: 0; }
+.rank-list li {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--critical);
+    border-radius: 10px;
+    padding: 1rem 1rem 1rem 3.5rem;
+    margin: 0.75rem 0;
+}
+.rank-list li::before {
+    counter-increment: rank;
+    content: counter(rank);
+    position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%);
+    width: 1.9rem; height: 1.9rem; border-radius: 50%;
+    background: var(--critical); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.95rem;
+}
+.rank-list .freq {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    background: #fef2f2; color: var(--critical);
+    border: 1px solid #fca5a5; border-radius: 4px;
+    padding: 0.1rem 0.5rem; margin-left: 0.4rem;
+}
+[data-theme="dark"] .rank-list .freq { background: #3a1620; border-color: #7f1d1d; }
+
+/* ============================================================
+   COMMON MISTAKES
+   ============================================================ */
+.mistake-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin: 1rem 0; }
+.mistake-card {
+    display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.6rem;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 0.9rem 1rem;
+}
+.mistake-card .x { color: var(--critical); font-weight: 800; }
+.mistake-card .fix { color: var(--medium); font-weight: 600; }
+
+/* ============================================================
+   PROGRESS CHECKLIST
+   ============================================================ */
+.progress-wrap { margin: 1rem 0; }
+.progress-bar-outer {
+    height: 14px; background: var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 1rem;
+}
+.progress-bar-inner {
+    height: 100%; width: 0%; background: linear-gradient(90deg, var(--medium), var(--primary));
+    transition: width 0.4s ease;
+}
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+    display: flex; align-items: center; gap: 0.7rem;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 0.7rem 1rem; margin: 0.4rem 0;
+    cursor: pointer; transition: background 0.2s;
+}
+.checklist li:hover { background: rgba(37,99,235,0.06); }
+.checklist li.done { opacity: 0.6; }
+.checklist li.done .ck-label { text-decoration: line-through; }
+.checklist input { width: 1.1rem; height: 1.1rem; cursor: pointer; accent-color: var(--medium); }
+.checklist .ck-weight { margin-left: auto; font-size: 0.75rem; color: var(--text-light); font-weight: 600; }
+
+/* ============================================================
+   SELF-QUIZ
+   ============================================================ */
+.quiz-q {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-left: 5px solid var(--primary); border-radius: 10px;
+    padding: 1rem 1.25rem; margin: 0.75rem 0;
+}
+.quiz-q p { margin: 0 0 0.4rem; font-weight: 600; }
+.quiz-q details summary { background: var(--medium); color: #fff; }
+[data-theme="dark"] .quiz-q details summary { background: #15803d; }
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+#back-to-top {
+    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 150;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--primary); color: #fff; border: none;
+    font-size: 1.4rem; cursor: pointer; box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.2s;
+}
+#back-to-top.show { opacity: 1; pointer-events: auto; }
+#back-to-top:hover { transform: translateY(-3px); }
+
+
+.reset-btn {
+    margin-top: 1rem; padding: 0.5rem 1rem;
+    background: transparent; color: var(--text-light);
+    border: 1px solid var(--border); border-radius: 8px;
+    cursor: pointer; font-size: 0.82rem;
+}
+.reset-btn:hover { color: var(--critical); border-color: var(--critical); }
